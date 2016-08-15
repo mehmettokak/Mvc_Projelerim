@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "AnaSayfa";
+    
+}
+
+<div id="content_top">
+    <div class="region">
+        
+        @*Slidergetir patial ı cagırıyoruz.*@
+     @{Html.RenderAction("YeniHaberGetir");
+         Html.RenderAction("SliderGetir");
+       Html.RenderAction("EnSonHaberler");
+       Html.RenderAction("UstTabHaberler");
+       Html.RenderAction("KucukFotoSliderGetir");
+
+       }
+
+
+        @*@Html.RenderAction("EnSonHaberler")
+    @Html.RenderAction("UstTabHaberler")*@
+       
+    </div>
+</div>
+

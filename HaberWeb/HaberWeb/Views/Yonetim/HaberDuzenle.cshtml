@@ -1,0 +1,104 @@
+﻿@model HaberWeb.Models.Haber
+
+@{
+    ViewBag.Title = "Haber Düzenle";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>Haber Düzenle</h2>
+
+@using (Html.BeginForm("HaberDuzenle", "Yonetim", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+     
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model=>model.H_id)
+        <div class="form-group">
+            @Html.LabelFor(model => model.H_Baslik, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.H_Baslik, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.H_Baslik, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.H_ozet, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.H_ozet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.H_ozet, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            İçerik
+            <div class="form-group">
+                @Html.TextAreaFor(model => model.H_icerik, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            </div>
+           </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.H_YayimTarihi, htmlAttributes: new { @class = "control-label col-md-2" })<br /><br />
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.H_YayimTarihi, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.H_YayimTarihi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                Yazar
+                <div class="col-md-10">
+                    @Html.DropDownList("YazarID")
+                    @Html.ValidationMessageFor(model => model.H_YazarID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                Haber Kategorisi
+                <div class="col-md-10">
+                    @Html.DropDownList("KategoriId")
+                    @Html.ValidationMessageFor(model => model.H_KategoriID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                Haber Tipi
+                <div class="col-md-10">
+                    @Html.DropDownList("TipID")
+                    @Html.ValidationMessageFor(model => model.H_TipID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                Resim
+                <div class="col-md-10">
+                    <img src="@Model.H_KucukResimYol" width="150" height="150" />
+                    <input type="file" name="Foto" value="" />
+
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.H_VideoYol, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.H_VideoYol, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.H_VideoYol, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Güncelle" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+}
+
+<div>@Html.ActionLink("Listeye Geri Dön","HaberYonet")</div>
+<script type="text/javascript" src="@Url.Content("~/ckeditor/ckeditor.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/ckfinder/ckfinder.js")"></script>
+<script type="text/javascript">
+    CKEDITOR.replace('H_icerik');
+   
+    //CKFinder.setupCKEditor(null, '/ckfinder/');
+</script>

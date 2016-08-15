@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Haber Yönetimi";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>Makale Yonet</h2>
+
+@*Burası patial viewların birleşimi ile olusacaktır.*@
+
+@{
+    Html.RenderAction("HaberEkle");
+    Html.RenderAction("HaberListele");
+    }

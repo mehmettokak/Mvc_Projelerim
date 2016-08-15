@@ -1,0 +1,223 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/shared/admin_Layout.cshtml";
+    int i = 0;
+}
+@model HocaWeb.Models.Sabitler
+           @{
+               List<HocaWeb.Models.Sabit> Sabitolanlar = null;
+               if (Model == null)
+               {
+                   var d = new HocaWeb.Models.Sabitler();
+                   Sabitolanlar = d.SABITLER;
+               }
+               else
+               {
+                   Sabitolanlar = Model.SABITLER;
+               }
+               
+           }
+@{
+    List<HocaWeb.Models.Resim> RESİMLER = null;
+    if (Model == null)
+    {
+        var d = new HocaWeb.Models.Sabitler();
+        RESİMLER = d.RESİM;
+    }
+    else
+    {
+        RESİMLER = Model.RESİM;
+    }
+
+}
+@{
+    List<HocaWeb.Models.User_Pasword> USERPASWORD = null;
+    if (Model == null)
+    {
+        var d = new HocaWeb.Models.Sabitler();
+        USERPASWORD = d.UserPasword;
+    }
+    else
+    {
+        USERPASWORD = Model.UserPasword;
+    }
+
+}
+<h2>Home</h2>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Update Image Home
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Update Home </h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                   
+                        <div class="box-body">
+                            @*<input type="text"   name="id" style="display:none;"  />*@
+                            <div class="form-group">
+
+                                <div class="col-sm-10">
+
+                                   
+
+    @foreach (var item in RESİMLER)
+    {
+        i++;
+        <form class="form-horizontal" action="/Home-Imge-Update" method="post" enctype="multipart/form-data">
+            <label>Image-@i</label> <br />
+            <div><img style="width:60px;height:40px; border-radius:10px; " src="@item.Res_adi" /><label style="margin-left:20px;"> @item.Res_adi</label></div><br />
+            <input type="text" class="form-control" name="img_name" style="display:none;" value="@item.Res_adi"/>
+            <label>Image Title</label>
+            <input type="text" class="form-control" name="img_title" value="@item.Res_title"/>
+            <label>Image Url</label>
+            <input type="text" class="form-control" name="img_url" value="@item.Res_url"/>
+            <input type="text" name="img_id" style="display:none;" value="@item.Res_id"/><br />
+            <div class="form-group">
+                <input type="file"  name="RESIM" />
+            </div>
+ <button type="submit" class="btn btn-info pull-right">Update</button><br /><br /><hr />
+        </form>
+
+    }
+
+                                      
+
+                                   
+</div>
+                            </div>
+
+
+                        </div><!-- /.box-body -->
+                        @*<div class="box-footer">
+
+                           
+                        </div>*@<!-- /.box-footer -->
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Update IText Home
+                </a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Update Home </h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <form class="form-horizontal" action="/HomeUpdate" method="post">
+                        <div class="box-body">
+                            @*<input type="text"   name="id" style="display:none;"  />*@
+                            <div class="form-group">
+
+                                <div class="col-sm-10">
+
+
+
+                                    @foreach (var item in Sabitolanlar)
+                                    {
+
+
+                                        <label>Text-1</label>    <input type="text" class="form-control" name="text_1" value="@item.Text_1">
+                                        <label>Text-2</label>    <input type="text" class="form-control" name="text_2" value="@item.Text_2">
+                                        <label>Text-3</label>    <input type="text" class="form-control" name="text_3" value="@item.Text_3"><br /><br />
+                                        <label>Text-4</label>    <input type="text" class="form-control" name="text_4" value="@item.Text_4">
+                                        <label>Text-5</label>    <input type="text" class="form-control" name="text_5" value="@item.Text_5">
+                                        <label>Text-6</label>    <input type="text" class="form-control" name="text_6" value="@item.Text_6">
+                                        <input type="text" name="sabit_id" value="@item.Text_id" style="display:none;" />
+                                        <input type="text" name="Gelen" value="HOME" style="display:none;" />
+                                    }
+
+
+
+
+                                </div>
+                            </div>
+
+
+                        </div><!-- /.box-body -->
+                        <div class="box-footer">
+
+                            <button type="submit" class="btn btn-info pull-right">Update</button>
+                        </div><!-- /.box-footer -->
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingthree">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" aria-controls="collapseTwo">
+                    Update User-Password
+                </a>
+            </h4>
+        </div>
+        <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingthree">
+            <div class="panel-body">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"> Update User-Password </h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <form class="form-horizontal" action="/UserUpdate" method="post">
+                        <div class="box-body">
+                            @*<input type="text"   name="id" style="display:none;"  />*@
+                            <div class="form-group">
+
+                                <div class="col-sm-10">
+                                  @foreach (var item in USERPASWORD)
+                                    {
+
+
+                                        <label>Text-1</label>    <input type="text" class="form-control" name="user" value="@item.username">
+                                        <label>Text-2</label>    <input type="text" class="form-control" name="pasword" value="@item.pasword">
+                            
+                                        <input type="text" name="ID" value="@item.U_P_id" style="display:none;" />
+                                       
+                                    }
+
+
+
+
+                                </div>
+                            </div>
+
+
+                        </div><!-- /.box-body -->
+                        <div class="box-footer">
+
+                            <button type="submit" class="btn btn-info pull-right">Update</button>
+                        </div><!-- /.box-footer -->
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

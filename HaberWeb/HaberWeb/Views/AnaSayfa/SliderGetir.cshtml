@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = null;
+}
+@model IEnumerable<HaberWeb.Models.Haber>
+
+@helper BaslikTasmaKontrol(string baslikk)
+{
+    if(baslikk.Length>30) 
+    {<marquee>@baslikk</marquee>}
+    else 
+    {   @baslikk}
+    }
+<aside id="block_front_slider" class="block">
+    <div class="content ad-gallery">
+        <div class="ad-image-wrapper"></div>
+        <div class="ad-controls"></div>
+        <div class="ad-nav">
+            <div class="ad-thumbs">
+                <ul class="ad-thumb-list">
+                    @*Modelin içini tek tek gez iteme ata derim :)Marquee belirtilen karakteri asarsa kayan yazı haline donusturur.*@
+                    @foreach (var item in Model)
+                    {
+                        <li><a href="@item.H_ResimYol"><img src="@item.H_KucukResimYol" title="@BaslikTasmaKontrol(item.H_Baslik)" alt="@item.H_ozet " /></a></li>
+                    }
+                  
+                </ul>
+            </div>
+        </div>
+    </div>
+</aside>
+
+

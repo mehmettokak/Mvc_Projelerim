@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model HaberWeb.Models.H_Anket
+<style>
+    .yuzde{
+        width:100%;height:10px;position:relative;
+    }
+    .oran{
+        height:90%;position:relative;background-color:fuchsia;
+    }
+</style>
+@helper OranGetir(int id) { 
+    //100*aldıgı oysayısı/verilen oy (katılımcı sayısı)
+    var oran = 100 * Model.H_Anket_Secenek.FirstOrDefault(x => x.H_A_S_ID == id).H_A_S_OySayisi / Model.H_ANket_KatilimciSayisi;
+    Write(oran);
+    }
+<aside id="block_poll" class="content">
+   
+        <h3>@Model.H_Anket_Baslik</h3>
+        <div id="edit-choice">
+            @*burda anket secenek tablosu kullanıcagımız ıcın foreach kullandık*@
+            @foreach (var item in Model.H_Anket_Secenek)
+            {
+                <div class="form-item">
+                    <label for="edit-choice-@item.H_A_S_Sirasi">@item.H_A_S_Metin (%@OranGetir(item.H_A_S_ID))</label>
+                  <div class="yuzde">
+                      
+                        <div class="oran" style="width:@OranGetir(item.H_A_S_ID)%">
+                           
+
+                      </div>
+                  </div>
+                  
+                </div>
+            }
+
+
+        </div>
+</aside>

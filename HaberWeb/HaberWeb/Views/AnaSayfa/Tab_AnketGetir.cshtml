@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+    int i = 0;
+}
+@model  HaberWeb.Models.H_Anket  
+            @*bir anket getirecegi için ienumrable kullanmadık.bunu lıste halınde cekiyorsak kullanırız.foreach kullanmamıza da gerek kalmıyor.*@
+<aside id="block_poll" class="content">
+    <form action="/AnaSayfa/OyVer/@Model.H_Anket_ID" method="post">
+        <h3>@Model.H_Anket_Baslik</h3>
+        <div id="edit-choice">
+            @*burda anket secenek tablosu kullanıcagımız ıcın foreach kullandık*@
+            @foreach (var item in Model.H_Anket_Secenek)
+            {i++;
+                <div class="form-item">
+                    <input type="radio" value="@item.H_A_S_ID" name="choice" id="edit-choice-@item.H_A_S_Sirasi" @(i==1 ? "checked" : "") />
+                    <label for="edit-choice-@item.H_A_S_Sirasi">@item.H_A_S_Metin</label>
+                </div>
+            }
+            
+         
+        </div>
+        <button type="submit"><span class="view_all"><span><span>Oy Ver</span></span></span></button>
+        <a href="#" class="view_all"><span><span>Sonuclar</span></span></a>
+    </form>
+</aside>

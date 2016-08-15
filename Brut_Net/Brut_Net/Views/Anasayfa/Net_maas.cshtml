@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Net_maas";
+    Layout = "~/Views/shared/Layout.cshtml";
+}
+
+<center><h3>Net maas bilgisi giriniz?</h3></center>
+
+<div class="divider"><span></span></div>
+
+@using (Html.BeginForm("Hesaplamalar", "Anasayfa", FormMethod.Post))
+{
+   
+        <input type="text" name="netMaas" style="width:100px;margin-left:400px;" required />
+        <button type="submit" style="margin-left:20px;">Hesapla</button>
+    
+}
+
+<div class="divider"><span></span></div>
+

@@ -1,0 +1,326 @@
+﻿@model HocaWeb.Models.adminGenel
+@{
+    ViewBag.Title = "kategori";
+    Layout = "~/Views/shared/admin_Layout.cshtml";
+    int i = 0;
+    int h = 0;
+
+}
+@{
+    List<HocaWeb.Models.altkategori> ALTKATEGORI = null;
+    if (Model == null)
+    {
+        var d = new HocaWeb.Models.adminGenel();
+        ALTKATEGORI = d.Altkategoriler;
+    }
+    else
+    {
+        ALTKATEGORI = Model.Altkategoriler;
+    }
+    List<HocaWeb.Models.Menu_Kategorileri> MENUKATEGORI = null;
+    if (Model == null)
+    {
+        var d = new HocaWeb.Models.adminGenel();
+        MENUKATEGORI = d.MenuKategori;
+    }
+    else
+    {
+        MENUKATEGORI = Model.MenuKategori;
+    }
+    List<HocaWeb.Models.Kategori> KATEGORI = null;
+    if (Model == null)
+    {
+        var d = new HocaWeb.Models.adminGenel();
+        KATEGORI = d.Kategoriler;
+    }
+    else
+    {
+        KATEGORI = Model.Kategoriler;
+    }
+    List<HocaWeb.Models.Urunlerim> URUNLERIM = null;
+    if (Model == null)
+    {
+        var d = new HocaWeb.Models.adminGenel();
+        URUNLERIM = d.Urunlerim;
+    }
+    else
+    {
+        URUNLERIM = Model.Urunlerim;
+    }
+
+}
+<h2>Add Product</h2>
+@*-----------------------------UrunEkle---------------------------------------------*@
+<div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        @foreach (var item in MENUKATEGORI)
+        {
+
+
+            <li role="presentation"><a href="#@item.MenuId" aria-controls="@item.MenuAd" role="tab" data-toggle="tab">@item.MenuAd </a></li>
+        }
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+
+        @foreach (var item in MENUKATEGORI)
+        {
+
+
+
+            <div role="tabpanel" class="tab-pane" id="@item.MenuId">
+
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    @foreach (var item1 in ALTKATEGORI.Where(x => x.altkat_menuIid == item.MenuId))
+                    {
+                        i++;
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="@item1.altkat_menuIid">
+                                <h4 class="panel-title">
+                                    <a @(i == 1 ? "" : "class=collapsed") role="button" data-toggle="collapse" data-parent="#accordion" href="#@item1.altKtgoriadi" aria-expanded="@(i == 1 ? true : false)" aria-controls="@item1.altKtgoriadi">
+                                        @item1.altKtgoriadi
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="@item1.altKtgoriadi" class="panel-collapse collapse @(i == 1 ? "in" : "")" role="tabpanel" aria-labelledby="@item1.altkat_menuIid">
+                                <div class="panel-body">
+
+                                    @*@using (Html.BeginForm("Urun","Tacir",FormMethod.Post,new { enctype = "multipart/form-data" }))
+                                        {form yerıne bu da kullanılabilir*@
+                                    <form class="form-horizontal" action="/Admin/Add-Update-Product" method="post" enctype="multipart/form-data">
+                                        <div class="box-body">
+                                            @*<input type="text"   name="id" style="display:none;"  />*@
+                                            <div class="form-group">
+
+                                                <div class="col-sm-10">
+
+                                                    <input @(item.MenuId != 2 ? "" : "style=display:none") type="text" class="form-control" name="URUN_AD" placeholder="Write Product"><br />
+                                                    <input type="text" class="form-control" name="URUN_ACIKLAMA" @(item.MenuId != 1 ? "" : "style=display:none") placeholder="Urun Açiklama Yazınız ?">
+
+
+                                                    <input type="text" name="URUN_ID" style="display:none" />
+                                                </div>
+
+                                            </div>
+
+                                            <select name="URUN_KTGRI_ID" class="form-control select2" style="width: 83%;">
+                                                <option value="0">Choose To Menu Categories</option>
+                                                @foreach (var item2 in KATEGORI.Where(x => x.Kategori_altktgri_id == @item1.altKtgriId))
+                                                {
+                                                    <option value="@item2.KategoriId">@item2.Kategoriadi</option>
+                                                }
+
+
+
+                                            </select>
+                                        </div><!-- /.box-body -->
+
+                                        <div class="control-group">
+
+                                            <div class="controls">
+                                                <input type="file" @(item.MenuId == 2 ? "" : "style=display:none") name="RESIM" id="RESIM" />
+                                            </div>
+                                        </div>
+                                        <div class="box-footer">
+
+                                            <button type="submit" class="btn btn-info pull-right">Add</button>
+                                        </div><!-- /.box-footer -->
+
+                                    </form>
+
+
+
+
+
+
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+
+            </div>
+        }
+
+
+
+    </div>
+
+
+
+</div>
+
+@*------------------------------------UrunListe Guncelle-Sil--------------------------------------*@
+
+<h2>Update-Delete Categories</h2>
+
+<div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        @foreach (var item in MENUKATEGORI)
+        {
+
+
+            <li role="presentation"><a href="#A-@item.MenuId" aria-controls="@item.MenuAd" role="tab" data-toggle="tab">@item.MenuAd </a></li>
+        }
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+
+        @foreach (var item in MENUKATEGORI)
+        {
+
+
+
+            <div role="tabpanel" class="tab-pane" id="A-@item.MenuId">
+
+                <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+                    @foreach (var item1 in ALTKATEGORI.Where(x => x.altkat_menuIid == item.MenuId))
+                    {
+                        i++;
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="A-@item1.altkat_menuIid">
+                                <h4 class="panel-title">
+                                    <a @(i == 1 ? "" : "class=collapsed") role="button" data-toggle="collapse" data-parent="#accordion2" href="#B-@item1.altKtgoriadi" aria-expanded="@(i == 1 ? true : false)" aria-controls="@item1.altKtgoriadi">
+                                        @item1.altKtgoriadi
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="B-@item1.altKtgoriadi" class="panel-collapse collapse @(i == 1 ? "in" : "")" role="tabpanel" aria-labelledby="A-@item1.altkat_menuIid">
+                                @foreach (var item2 in KATEGORI.Where(k => k.Kategori_altktgri_id == item1.altKtgriId))
+                                {
+
+
+                                    <div class="panel-body">
+                                        <div class="panel-heading" role="tab" id="B-@item1.altkat_menuIid">
+                                            <h4 class="panel-title">
+                                                <a @(i == 1 ? "" : "class=collapsed") role="button" data-toggle="collapse" data-parent="#accordion3" href="#C-@item2.Kategoriadi" aria-expanded="@(i == 1 ? true : false)" aria-controls="@item2.Kategoriadi">
+                                                    @item2.Kategoriadi
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="C-@item2.Kategoriadi" class="panel-collapse collapse @(i == 1 ? "in" : "")" role="tabpanel" aria-labelledby="C-@item2.KategoriId">
+                                            @foreach (var item3 in URUNLERIM.Where(j => j.UrunktgriId == item2.KategoriId))
+                                            {
+                                                <div class="panel-body1">
+                                                    <div class="panel-heading" role="tab" id="C-@item3.UrunktgriId">
+                                                        <hr @(h == 1 ? "" : "display:none;") />
+
+                                                        <div @(item.MenuId == 2 ? "style=display:none" : "")> @item3.Urunadi</div>
+                                                        <div @(item.MenuId == 2 ? "" : "style=display:none")><img style="width:60px;height:40px; border-radius:10px; " src="@item3.Urunadi" /><label style="margin-left:20px;"> @item3.Urunadi</label></div>
+                                                        <div style="margin-top:-20px;">
+                                                            <button style="margin-left:5px;" type="submit" class="btn btn-info pull-right" data-toggle="modal" data-target="#R-@item3.UrunId">Update </button>
+                                                            <button type="submit" class="btn btn-info pull-right" data-toggle="modal" data-target="#j-@item3.UrunId">Delete</button>
+                                                            @*-------------------------Urun Guncelle---------------------------*@
+                                                            <form action="/Admin/Add-Update-Product" method="post" enctype="multipart/form-data">
+                                                                <div class="modal fade" id="R-@item3.UrunId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                                                                    <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="false">&times;</span></button>
+
+                                                                            </div>
+
+                                                                            <div class="modal-body">
+
+                                                                                <div class="form-group">
+                                                                                    <label for="recipient-name" class="control-label">Update Product</label>
+
+                                                                                    <div @(item.MenuId == 2 ? "" : "style=display:none")><img style="width:100px;height:100px;border-radius:15px; border-radius:10px; " src="@item3.Urunadi" /><label style="margin-left:20px;" > @item3.Urunadi</label></div>
+
+
+
+
+                                                                                    <input @(item.MenuId != 2 ? "" : "style=display:none") name="URUN_AD" type="text" class="form-control" id="recipient-name" value="@item3.Urunadi">
+                                                                                    <input name="URUN_KTGRI_ID" value="@item3.UrunktgriId" type="text" class="form-control" id="recipient-name" style="display:none;">
+                                                                                    <label @(item.MenuId != 1 ? "" : "style=display:none")>Product Description</label>
+                                                                                    <input @(item.MenuId != 1 ? "" : "style=display:none") name="URUN_ACIKLAMA" class="form-control" type="text" value="@item3.UrunAcıklama" />
+                                                                                    <input name="URUN_ID" value="@item3.UrunId" type="text" class="form-control" id="recipient-name" style="display:none;">
+                                                                                </div>
+                                                                                <div class="form-group" @(item.MenuId == 2 ? "" : "style=display:none")>
+                                                                                    <input type="file" name="RESIM" />
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+
+                                                                                <button type="submit" class="btn btn-primary">Update</button>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                            @*-------------------------UrunSil--------------------------*@
+                                                            <form action="/Admin/Delete-Product" method="post">
+                                                                <div class="modal fade" id="j-@item3.UrunId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                                                                    <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="false">&times;</span></button>
+
+                                                                            </div>
+
+                                                                            <div class="modal-body">
+
+                                                                                <div class="form-group">
+                                                                                    <label for="recipient-name" class="control-label">Delete Product </label>
+                                                                                    
+                                                                                   
+                                                                                    <div @(item.MenuId == 2 ? "" : "style=display:none")><img style="width:170px;height:100px;border-radius:15px; border-radius:10px; " src="@item3.Urunadi" /><label style="margin-left:20px;"> @item3.Urunadi</label></div>
+                                                                                    <input @(item.MenuId != 2 ? "" : "style=display:none") name="URUN_AD" type="text" class="form-control" id="recipient-name" value="@item3.Urunadi">
+                                                                                    <input name="URUN_KTGRI_ID" value="@item3.UrunktgriId" type="text" class="form-control" id="recipient-name" style="display:none;">                                  
+                                                                                    <label @(item.MenuId != 1 ? "" : "style=display:none") >Product Description</label>
+                                                                                    <input @(item.MenuId != 1 ? "" : "style=display:none") name="URUN_ACIKLAMA" class="form-control" type="text" value="@item3.UrunAcıklama" />
+                                                                                    <input name="URUN_ID" value="@item3.UrunId" type="text" class="form-control" id="recipient-name" style="display:none;">
+                                                                                </div>
+                                                                               
+                                                                            </div>
+                                                                            <div class="modal-footer">
+
+                                                                                <button type="submit" class="btn btn-primary">Delete</button>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            }
+                                        </div>
+
+
+
+                                    </div>
+
+                                }
+                            </div>
+
+                        </div>
+                    }
+
+
+                </div>
+
+            </div>
+        }
+
+
+
+    </div>
+
+
+
+</div>
+
+

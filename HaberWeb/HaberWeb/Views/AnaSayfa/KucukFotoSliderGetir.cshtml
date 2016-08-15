@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+@model IEnumerable<HaberWeb.Models.Haber>
+<section id="block_editors_choice" class="block">
+    <h3 class="block_title">Editörün Seçtikleri</h3>
+    <div class="content">
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>
+                    <div class="editors_inner2">
+                        <article class="editors_inner">
+                            <div class="editors_left"><img src="@item.H_KucukResimYol" alt="@item.H_ozet" /></div>
+                            <div class="editors_right">
+                                <h4 class="title"><a href="/Galeri/GaleriGoster/@item.H_Baslik/@item.H_id">@item.H_Baslik</a></h4>
+                                <p class="date">
+                                    <time datetime="@item.H_YayimTarihi.ToShortDateString()">@item.H_YayimTarihi.ToString("dd MMMM yyyy")</time>
+                                    <span class="comments_count"><a href="#">@item.H_Yorum.Count</a></span>
+                                </p>
+                                <p>@(item.H_ozet.Length>50 ? item.H_ozet.Substring(0,50) : item.H_ozet) ...</p>
+                            </div>
+                        </article>
+                    </div>
+                </li>
+            }
+         
+           
+        </ul>
+    </div>
+</section>

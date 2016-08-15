@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = null;
+    int i = 0;
+}
+
+<!DOCTYPE html>
+@model IEnumerable<HaberWeb.Models.H_Kategori>
+<div id="under_header">
+    <div class="region">
+        <div id="block_main_menu" class="block">
+            <div class="inner">
+                <nav>
+                    <ul>
+                        @foreach (var item in Model)
+                        { i++;
+                            <li @(i==1 ? "class=first active" : "") ><a href="/AnaSayfa/@item.H_K_Adi"><span class="bg">@item.H_K_Adi</span></a></li>
+                        }
+                       
+                        @*<li><a href="fullwidth.html"><span class="bg">Pages</span></a></li>
+                        <li><a href="typography.html"><span class="bg">Features</span></a></li>
+                        <li><a href="gallery_3columns.html"><span class="bg">Gallery</span></a></li>
+                        <li><a href="#"><span class="bg">World</span></a></li>
+                        <li><a href="#"><span class="bg">U.S.</span></a></li>
+                        <li><a href="#"><span class="bg">Business</span></a></li>
+                        <li><a href="#"><span class="bg">Sports</span></a></li>
+                        <li><a href="#"><span class="bg">Entertainment</span></a></li>
+                        <li><a href="#"><span class="bg">Health</span></a></li>
+                        <li><a href="#"><span class="bg">Tech</span></a></li>
+                        <li><a href="#"><span class="bg">Weather</span></a></li>*@
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div id="block_secondary_menu" class="block">
+            <div class="inner">
+                <ul>
+                    <li class="first active color" data-class="red"><a href="#">Kırmızı</a></li>
+                    <li class="color" data-class="blue"><a href="#">Mavi</a></li>
+                    <li class="color" data-class="orange"><a href="#">Turuncu</a></li>
+                    <li class="color" data-class="green"><a href="#">Yeşil</a></li>
+                    <li class="color" data-class="grey"><a href="#">Gri</a></li>
+                    <li class="color" data-class="dark_blue"><a href="#">Koyu Mavi</a></li>
+                    <li class="color" data-class="dark_grey"><a href="#">Koyu Gri</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

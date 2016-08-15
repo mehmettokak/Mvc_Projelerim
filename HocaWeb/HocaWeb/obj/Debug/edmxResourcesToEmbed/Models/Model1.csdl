@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AkademikModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="AkademikEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_mehmet_altkategori_ekle">
+      <Parameter Name="ad" Mode="In" Type="String" />
+      <Parameter Name="kategori_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_mehmet_altkategori_Guncelle">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="ad" Mode="In" Type="String" />
+      <Parameter Name="altkategorimenu_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_mehmet_altkategori_Sil">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_mehmet_altkategoriye_gore_kategori_cek" ReturnType="Collection(AkademikModel.sp_mehmet_altkategoriye_gore_kategori_cek_Result)">
+      <Parameter Name="kat_idd" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_mehmet_giris_kontrol" ReturnType="Collection(AkademikModel.sp_mehmet_giris_kontrol_Result)">
+      <Parameter Name="user" Mode="In" Type="String" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_mehmet_Home_Sabit_Guncelle">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="t_1" Mode="In" Type="String" />
+      <Parameter Name="t_2" Mode="In" Type="String" />
+      <Parameter Name="t_3" Mode="In" Type="String" />
+      <Parameter Name="t_4" Mode="In" Type="String" />
+      <Parameter Name="t_5" Mode="In" Type="String" />
+      <Parameter Name="t_6" Mode="In" Type="String" />
+      <Parameter Name="t_7" Mode="In" Type="String" />
+      <Parameter Name="t_8" Mode="In" Type="String" />
+      <Parameter Name="t_9" Mode="In" Type="String" />
+      <Parameter Name="gelen" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_mehmet_homeBig_Image" ReturnType="Collection(AkademikModel.sp_mehmet_homeBig_Image_Result)" />
+    <FunctionImport Name="sp_mehmet_HomeImage_Guncelle">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="ad" Mode="In" Type="String" />
+      <Parameter Name="detay" Mode="In" Type="String" />
+      <Parameter Name="urun_url" Mode="In" Type="String" />
+      <Parameter Name="resim_ad" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_mehmet_iletisim_ekle">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="fulname" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="desc" Mode="In" Type="String" />
+      <Parameter Name="subject" Mode="In" Type="String" />
+      <Parameter Name="durum" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="sp_mehmet_iletisim_getir" ReturnType="Collection(AkademikModel.sp_mehmet_iletisim_getir_Result)" />
+    <FunctionImport Name="sp_mehmet_Kategori_ekle">
+      <Parameter Name="ad" Mode="In" Type="String" />
+      <Parameter Name="kategori_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_mehmet_Kategori_Guncelle">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="ad" Mode="In" Type="String" />
+      <Parameter Name="kat_altkat_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_mehmet_kategori_Sil">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_mehmet_kategorileri_cek" ReturnType="Collection(AkademikModel.sp_mehmet_kategorileri_cek_Result)" />
+    <FunctionImport Name="sp_mehmet_kullanici_bilgi_getir" ReturnType="Collection(AkademikModel.sp_mehmet_kullanici_bilgi_getir_Result)" />
+    <FunctionImport Name="sp_mehmet_Menu_Getir" ReturnType="Collection(AkademikModel.sp_mehmet_Menu_Getir_Result)" />
+    <FunctionImport Name="sp_mehmet_sabitler" ReturnType="Collection(AkademikModel.sp_mehmet_sabitler_Result)" />
+    <FunctionImport Name="sp_mehmet_urun_Ekle_Guncelle">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="ad" Mode="In" Type="String" />
+      <Parameter Name="detay" Mode="In" Type="String" />
+      <Parameter Name="urun_kategori_id" Mode="In" Type="Int32" />
+      <Parameter Name="resim_ad" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_mehmet_Urun_Sil">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_mehmet_urunler_kategoriye_gore_liste_cek" ReturnType="Collection(AkademikModel.sp_mehmet_urunler_kategoriye_gore_liste_cek_Result)">
+      <Parameter Name="kattgri" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_mehmet_user_pasword_update">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="user" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_mehmettokak_nested_menu" ReturnType="Collection(AkademikModel.sp_mehmettokak_nested_menu_Result)" />
+    <FunctionImport Name="sp_mehmettokak_urunliste_cek" ReturnType="Collection(AkademikModel.sp_mehmettokak_urunliste_cek_Result)" />
+  </EntityContainer>
+  <ComplexType Name="sp_mehmet_altkategoriye_gore_kategori_cek_Result">
+    <Property Type="Int32" Name="kategori_id" Nullable="true" />
+    <Property Type="String" Name="kategori_ad" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="alt_ktgri_url" Nullable="true" />
+    <Property Type="Int32" Name="alt_ktgri_id" Nullable="false" />
+    <Property Type="String" Name="alt_ktgri_ad" Nullable="false" />
+    <Property Type="String" Name="kategori_url" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="alt_ktgri_menu_id" Nullable="false" />
+    <Property Type="Int32" Name="kategori_altktgr_id" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_mehmet_giris_kontrol_Result">
+    <Property Type="String" Name="kullanici_adi" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="kullanici_sifre" Nullable="false" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="sp_mehmet_homeBig_Image_Result">
+    <Property Type="Int32" Name="H_img_id" Nullable="false" />
+    <Property Type="String" Name="H_img_name" Nullable="false" />
+    <Property Type="String" Name="H_img_url" Nullable="true" />
+    <Property Type="String" Name="H_img_title" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_mehmet_iletisim_getir_Result">
+    <Property Type="String" Name="iletisim_ad_soyad" Nullable="true" />
+    <Property Type="Int32" Name="iletisim_id" Nullable="false" />
+    <Property Type="String" Name="iletisim_icerik" Nullable="true" />
+    <Property Type="String" Name="iletisim_email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="iletisim_konu" Nullable="true" />
+    <Property Type="Boolean" Name="iletisim_durum" Nullable="true" />
+    <Property Type="DateTime" Name="iletisim_tarih" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_mehmet_kategorileri_cek_Result">
+    <Property Type="String" Name="kategori_ad" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="kategori_id" Nullable="false" />
+    <Property Type="Int32" Name="kategori_altktgr_id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_mehmet_kullanici_bilgi_getir_Result">
+    <Property Type="Int32" Name="kullanici_id" Nullable="false" />
+    <Property Type="String" Name="kullanici_adi" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="kullanici_sifre" Nullable="false" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="sp_mehmet_Menu_Getir_Result">
+    <Property Type="String" Name="menu_ad" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="menu_id" Nullable="false" />
+    <Property Type="String" Name="menu_url" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_mehmet_sabitler_Result">
+    <Property Type="Int32" Name="h_ıd" Nullable="false" />
+    <Property Type="String" Name="h1_txt1" Nullable="true" />
+    <Property Type="String" Name="h1_txt2" Nullable="true" />
+    <Property Type="String" Name="h1_txt3" Nullable="true" />
+    <Property Type="String" Name="h2_txt1" Nullable="true" />
+    <Property Type="String" Name="h2_txt2" Nullable="true" />
+    <Property Type="String" Name="h2_txt3" Nullable="true" />
+    <Property Type="String" Name="c1_txt1" Nullable="true" />
+    <Property Type="String" Name="c1_txt2" Nullable="true" />
+    <Property Type="String" Name="c1_txt3" Nullable="true" />
+    <Property Type="String" Name="c1_txt4" Nullable="true" />
+    <Property Type="String" Name="c1_txt5" Nullable="true" />
+    <Property Type="String" Name="c1_txt6" Nullable="true" />
+    <Property Type="String" Name="c2_txt1" Nullable="true" />
+    <Property Type="String" Name="c2_txt2" Nullable="true" />
+    <Property Type="String" Name="c3_txt1" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_mehmet_urunler_kategoriye_gore_liste_cek_Result">
+    <Property Type="Int32" Name="urun_id" Nullable="false" />
+    <Property Type="String" Name="urun_ad" Nullable="false" />
+    <Property Type="String" Name="urun_aciklama" Nullable="true" />
+    <Property Type="Int32" Name="kategori_id" Nullable="false" />
+    <Property Type="String" Name="kategori_url" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="urun_kategori_id" Nullable="true" />
+    <Property Type="String" Name="kategori_ad" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="kategori_altktgr_id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_mehmettokak_nested_menu_Result">
+    <Property Type="Int32" Name="menu_id" Nullable="false" />
+    <Property Type="String" Name="menu_ad" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="menu_url" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="alt_ktgri_id" Nullable="true" />
+    <Property Type="String" Name="alt_ktgri_ad" Nullable="true" />
+    <Property Type="String" Name="alt_ktgri_url" Nullable="true" />
+    <Property Type="Int32" Name="alt_ktgri_menu_id" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_mehmettokak_urunliste_cek_Result">
+    <Property Type="Int32" Name="urun_id" Nullable="false" />
+    <Property Type="String" Name="urun_ad" Nullable="false" />
+    <Property Type="Int32" Name="urun_kategori_id" Nullable="true" />
+    <Property Type="String" Name="urun_aciklama" Nullable="true" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AkademikModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="sp_mehmet_altkategori_ekle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ad" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="kategori_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_mehmet_altkategori_Guncelle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="ad" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="altkategorimenu_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_mehmet_altkategori_Sil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_mehmet_altkategoriye_gore_kategori_cek" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="kat_idd" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_mehmet_giris_kontrol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="user" Type="nvarchar" Mode="In" />
+          <Parameter Name="pass" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_mehmet_Home_Sabit_Guncelle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="t_1" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="t_2" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="t_3" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="t_4" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="t_5" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="t_6" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="t_7" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="t_8" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="t_9" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="gelen" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_mehmet_homeBig_Image" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_mehmet_HomeImage_Guncelle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="ad" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="detay" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="urun_url" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="resim_ad" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_mehmet_iletisim_ekle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="fulname" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="email" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="desc" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="subject" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="durum" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_mehmet_iletisim_getir" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_mehmet_Kategori_ekle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ad" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="kategori_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_mehmet_Kategori_Guncelle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="ad" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="kat_altkat_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_mehmet_kategori_Sil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_mehmet_kategorileri_cek" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_mehmet_kullanici_bilgi_getir" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_mehmet_Menu_Getir" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_mehmet_sabitler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_mehmet_urun_Ekle_Guncelle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="ad" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="detay" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="urun_kategori_id" Type="int" Mode="In" />
+          <Parameter Name="resim_ad" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_mehmet_Urun_Sil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_mehmet_urunler_kategoriye_gore_liste_cek" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="kattgri" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_mehmet_user_pasword_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="user" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_mehmettokak_nested_menu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_mehmettokak_urunliste_cek" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="AkademikModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AkademikModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AkademikEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="sp_mehmet_altkategori_ekle">
+            <Parameter Name="ad" Mode="In" Type="String" />
+            <Parameter Name="kategori_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_mehmet_altkategori_Guncelle">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="ad" Mode="In" Type="String" />
+            <Parameter Name="altkategorimenu_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_mehmet_altkategori_Sil">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_mehmet_altkategoriye_gore_kategori_cek" ReturnType="Collection(AkademikModel.sp_mehmet_altkategoriye_gore_kategori_cek_Result)">
+            <Parameter Name="kat_idd" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_mehmet_giris_kontrol" ReturnType="Collection(AkademikModel.sp_mehmet_giris_kontrol_Result)">
+            <Parameter Name="user" Mode="In" Type="String" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_mehmet_Home_Sabit_Guncelle">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="t_1" Mode="In" Type="String" />
+            <Parameter Name="t_2" Mode="In" Type="String" />
+            <Parameter Name="t_3" Mode="In" Type="String" />
+            <Parameter Name="t_4" Mode="In" Type="String" />
+            <Parameter Name="t_5" Mode="In" Type="String" />
+            <Parameter Name="t_6" Mode="In" Type="String" />
+            <Parameter Name="t_7" Mode="In" Type="String" />
+            <Parameter Name="t_8" Mode="In" Type="String" />
+            <Parameter Name="t_9" Mode="In" Type="String" />
+            <Parameter Name="gelen" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_mehmet_homeBig_Image" ReturnType="Collection(AkademikModel.sp_mehmet_homeBig_Image_Result)" />
+          <FunctionImport Name="sp_mehmet_HomeImage_Guncelle">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="ad" Mode="In" Type="String" />
+            <Parameter Name="detay" Mode="In" Type="String" />
+            <Parameter Name="urun_url" Mode="In" Type="String" />
+            <Parameter Name="resim_ad" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_mehmet_iletisim_ekle">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="fulname" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="desc" Mode="In" Type="String" />
+            <Parameter Name="subject" Mode="In" Type="String" />
+            <Parameter Name="durum" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_mehmet_iletisim_getir" ReturnType="Collection(AkademikModel.sp_mehmet_iletisim_getir_Result)" />
+          <FunctionImport Name="sp_mehmet_Kategori_ekle">
+            <Parameter Name="ad" Mode="In" Type="String" />
+            <Parameter Name="kategori_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_mehmet_Kategori_Guncelle">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="ad" Mode="In" Type="String" />
+            <Parameter Name="kat_altkat_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_mehmet_kategori_Sil">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_mehmet_kategorileri_cek" ReturnType="Collection(AkademikModel.sp_mehmet_kategorileri_cek_Result)" />
+          <FunctionImport Name="sp_mehmet_kullanici_bilgi_getir" ReturnType="Collection(AkademikModel.sp_mehmet_kullanici_bilgi_getir_Result)" />
+          <FunctionImport Name="sp_mehmet_Menu_Getir" ReturnType="Collection(AkademikModel.sp_mehmet_Menu_Getir_Result)" />
+          <FunctionImport Name="sp_mehmet_sabitler" ReturnType="Collection(AkademikModel.sp_mehmet_sabitler_Result)" />
+          <FunctionImport Name="sp_mehmet_urun_Ekle_Guncelle">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="ad" Mode="In" Type="String" />
+            <Parameter Name="detay" Mode="In" Type="String" />
+            <Parameter Name="urun_kategori_id" Mode="In" Type="Int32" />
+            <Parameter Name="resim_ad" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_mehmet_Urun_Sil">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_mehmet_urunler_kategoriye_gore_liste_cek" ReturnType="Collection(AkademikModel.sp_mehmet_urunler_kategoriye_gore_liste_cek_Result)">
+            <Parameter Name="kattgri" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_mehmet_user_pasword_update">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="user" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_mehmettokak_nested_menu" ReturnType="Collection(AkademikModel.sp_mehmettokak_nested_menu_Result)" />
+          <FunctionImport Name="sp_mehmettokak_urunliste_cek" ReturnType="Collection(AkademikModel.sp_mehmettokak_urunliste_cek_Result)" />
+        </EntityContainer>
+        <ComplexType Name="sp_mehmet_altkategoriye_gore_kategori_cek_Result">
+          <Property Type="Int32" Name="kategori_id" Nullable="true" />
+          <Property Type="String" Name="kategori_ad" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="alt_ktgri_url" Nullable="true" />
+          <Property Type="Int32" Name="alt_ktgri_id" Nullable="false" />
+          <Property Type="String" Name="alt_ktgri_ad" Nullable="false" />
+          <Property Type="String" Name="kategori_url" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="alt_ktgri_menu_id" Nullable="false" />
+          <Property Type="Int32" Name="kategori_altktgr_id" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_mehmet_giris_kontrol_Result">
+          <Property Type="String" Name="kullanici_adi" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="kullanici_sifre" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="sp_mehmet_homeBig_Image_Result">
+          <Property Type="Int32" Name="H_img_id" Nullable="false" />
+          <Property Type="String" Name="H_img_name" Nullable="false" />
+          <Property Type="String" Name="H_img_url" Nullable="true" />
+          <Property Type="String" Name="H_img_title" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_mehmet_iletisim_getir_Result">
+          <Property Type="String" Name="iletisim_ad_soyad" Nullable="true" />
+          <Property Type="Int32" Name="iletisim_id" Nullable="false" />
+          <Property Type="String" Name="iletisim_icerik" Nullable="true" />
+          <Property Type="String" Name="iletisim_email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="iletisim_konu" Nullable="true" />
+          <Property Type="Boolean" Name="iletisim_durum" Nullable="true" />
+          <Property Type="DateTime" Name="iletisim_tarih" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="sp_mehmet_kategorileri_cek_Result">
+          <Property Type="String" Name="kategori_ad" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="kategori_id" Nullable="false" />
+          <Property Type="Int32" Name="kategori_altktgr_id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_mehmet_kullanici_bilgi_getir_Result">
+          <Property Type="Int32" Name="kullanici_id" Nullable="false" />
+          <Property Type="String" Name="kullanici_adi" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="kullanici_sifre" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="sp_mehmet_Menu_Getir_Result">
+          <Property Type="String" Name="menu_ad" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="menu_id" Nullable="false" />
+          <Property Type="String" Name="menu_url" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_mehmet_sabitler_Result">
+          <Property Type="Int32" Name="h_ıd" Nullable="false" />
+          <Property Type="String" Name="h1_txt1" Nullable="true" />
+          <Property Type="String" Name="h1_txt2" Nullable="true" />
+          <Property Type="String" Name="h1_txt3" Nullable="true" />
+          <Property Type="String" Name="h2_txt1" Nullable="true" />
+          <Property Type="String" Name="h2_txt2" Nullable="true" />
+          <Property Type="String" Name="h2_txt3" Nullable="true" />
+          <Property Type="String" Name="c1_txt1" Nullable="true" />
+          <Property Type="String" Name="c1_txt2" Nullable="true" />
+          <Property Type="String" Name="c1_txt3" Nullable="true" />
+          <Property Type="String" Name="c1_txt4" Nullable="true" />
+          <Property Type="String" Name="c1_txt5" Nullable="true" />
+          <Property Type="String" Name="c1_txt6" Nullable="true" />
+          <Property Type="String" Name="c2_txt1" Nullable="true" />
+          <Property Type="String" Name="c2_txt2" Nullable="true" />
+          <Property Type="String" Name="c3_txt1" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_mehmet_urunler_kategoriye_gore_liste_cek_Result">
+          <Property Type="Int32" Name="urun_id" Nullable="false" />
+          <Property Type="String" Name="urun_ad" Nullable="false" />
+          <Property Type="String" Name="urun_aciklama" Nullable="true" />
+          <Property Type="Int32" Name="kategori_id" Nullable="false" />
+          <Property Type="String" Name="kategori_url" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="urun_kategori_id" Nullable="true" />
+          <Property Type="String" Name="kategori_ad" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="kategori_altktgr_id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_mehmettokak_nested_menu_Result">
+          <Property Type="Int32" Name="menu_id" Nullable="false" />
+          <Property Type="String" Name="menu_ad" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="menu_url" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="alt_ktgri_id" Nullable="true" />
+          <Property Type="String" Name="alt_ktgri_ad" Nullable="true" />
+          <Property Type="String" Name="alt_ktgri_url" Nullable="true" />
+          <Property Type="Int32" Name="alt_ktgri_menu_id" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_mehmettokak_urunliste_cek_Result">
+          <Property Type="Int32" Name="urun_id" Nullable="false" />
+          <Property Type="String" Name="urun_ad" Nullable="false" />
+          <Property Type="Int32" Name="urun_kategori_id" Nullable="true" />
+          <Property Type="String" Name="urun_aciklama" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AkademikModelStoreContainer" CdmEntityContainer="AkademikEntities" >
+          <FunctionImportMapping FunctionImportName="sp_mehmet_altkategori_ekle" FunctionName="AkademikModel.Store.sp_mehmet_altkategori_ekle" />
+          <FunctionImportMapping FunctionImportName="sp_mehmet_altkategori_Guncelle" FunctionName="AkademikModel.Store.sp_mehmet_altkategori_Guncelle" />
+          <FunctionImportMapping FunctionImportName="sp_mehmet_altkategori_Sil" FunctionName="AkademikModel.Store.sp_mehmet_altkategori_Sil" />
+          <FunctionImportMapping FunctionImportName="sp_mehmet_altkategoriye_gore_kategori_cek" FunctionName="AkademikModel.Store.sp_mehmet_altkategoriye_gore_kategori_cek">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AkademikModel.sp_mehmet_altkategoriye_gore_kategori_cek_Result">
+                <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+                <ScalarProperty Name="kategori_ad" ColumnName="kategori_ad" />
+                <ScalarProperty Name="alt_ktgri_url" ColumnName="alt_ktgri_url" />
+                <ScalarProperty Name="alt_ktgri_id" ColumnName="alt_ktgri_id" />
+                <ScalarProperty Name="alt_ktgri_ad" ColumnName="alt_ktgri_ad" />
+                <ScalarProperty Name="kategori_url" ColumnName="kategori_url" />
+                <ScalarProperty Name="alt_ktgri_menu_id" ColumnName="alt_ktgri_menu_id" />
+                <ScalarProperty Name="kategori_altktgr_id" ColumnName="kategori_altktgr_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_mehmet_giris_kontrol" FunctionName="AkademikModel.Store.sp_mehmet_giris_kontrol">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AkademikModel.sp_mehmet_giris_kontrol_Result">
+                <ScalarProperty Name="kullanici_adi" ColumnName="kullanici_adi" />
+                <ScalarProperty Name="kullanici_sifre" ColumnName="kullanici_sifre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_mehmet_Home_Sabit_Guncelle" FunctionName="AkademikModel.Store.sp_mehmet_Home_Sabit_Guncelle" />
+          <FunctionImportMapping FunctionImportName="sp_mehmet_homeBig_Image" FunctionName="AkademikModel.Store.sp_mehmet_homeBig_Image">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AkademikModel.sp_mehmet_homeBig_Image_Result">
+                <ScalarProperty Name="H_img_id" ColumnName="H_img_id" />
+                <ScalarProperty Name="H_img_name" ColumnName="H_img_name" />
+                <ScalarProperty Name="H_img_url" ColumnName="H_img_url" />
+                <ScalarProperty Name="H_img_title" ColumnName="H_img_title" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_mehmet_HomeImage_Guncelle" FunctionName="AkademikModel.Store.sp_mehmet_HomeImage_Guncelle" />
+          <FunctionImportMapping FunctionImportName="sp_mehmet_iletisim_ekle" FunctionName="AkademikModel.Store.sp_mehmet_iletisim_ekle" />
+          <FunctionImportMapping FunctionImportName="sp_mehmet_iletisim_getir" FunctionName="AkademikModel.Store.sp_mehmet_iletisim_getir">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AkademikModel.sp_mehmet_iletisim_getir_Result">
+                <ScalarProperty Name="iletisim_ad_soyad" ColumnName="iletisim_ad_soyad" />
+                <ScalarProperty Name="iletisim_id" ColumnName="iletisim_id" />
+                <ScalarProperty Name="iletisim_icerik" ColumnName="iletisim_icerik" />
+                <ScalarProperty Name="iletisim_email" ColumnName="iletisim_email" />
+                <ScalarProperty Name="iletisim_konu" ColumnName="iletisim_konu" />
+                <ScalarProperty Name="iletisim_durum" ColumnName="iletisim_durum" />
+                <ScalarProperty Name="iletisim_tarih" ColumnName="iletisim_tarih" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_mehmet_Kategori_ekle" FunctionName="AkademikModel.Store.sp_mehmet_Kategori_ekle" />
+          <FunctionImportMapping FunctionImportName="sp_mehmet_Kategori_Guncelle" FunctionName="AkademikModel.Store.sp_mehmet_Kategori_Guncelle" />
+          <FunctionImportMapping FunctionImportName="sp_mehmet_kategori_Sil" FunctionName="AkademikModel.Store.sp_mehmet_kategori_Sil" />
+          <FunctionImportMapping FunctionImportName="sp_mehmet_kategorileri_cek" FunctionName="AkademikModel.Store.sp_mehmet_kategorileri_cek">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AkademikModel.sp_mehmet_kategorileri_cek_Result">
+                <ScalarProperty Name="kategori_ad" ColumnName="kategori_ad" />
+                <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+                <ScalarProperty Name="kategori_altktgr_id" ColumnName="kategori_altktgr_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_mehmet_kullanici_bilgi_getir" FunctionName="AkademikModel.Store.sp_mehmet_kullanici_bilgi_getir">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AkademikModel.sp_mehmet_kullanici_bilgi_getir_Result">
+                <ScalarProperty Name="kullanici_id" ColumnName="kullanici_id" />
+                <ScalarProperty Name="kullanici_adi" ColumnName="kullanici_adi" />
+                <ScalarProperty Name="kullanici_sifre" ColumnName="kullanici_sifre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_mehmet_Menu_Getir" FunctionName="AkademikModel.Store.sp_mehmet_Menu_Getir">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AkademikModel.sp_mehmet_Menu_Getir_Result">
+                <ScalarProperty Name="menu_ad" ColumnName="menu_ad" />
+                <ScalarProperty Name="menu_id" ColumnName="menu_id" />
+                <ScalarProperty Name="menu_url" ColumnName="menu_url" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_mehmet_sabitler" FunctionName="AkademikModel.Store.sp_mehmet_sabitler">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AkademikModel.sp_mehmet_sabitler_Result">
+                <ScalarProperty Name="h_ıd" ColumnName="h_ıd" />
+                <ScalarProperty Name="h1_txt1" ColumnName="h1_txt1" />
+                <ScalarProperty Name="h1_txt2" ColumnName="h1_txt2" />
+                <ScalarProperty Name="h1_txt3" ColumnName="h1_txt3" />
+                <ScalarProperty Name="h2_txt1" ColumnName="h2_txt1" />
+                <ScalarProperty Name="h2_txt2" ColumnName="h2_txt2" />
+                <ScalarProperty Name="h2_txt3" ColumnName="h2_txt3" />
+                <ScalarProperty Name="c1_txt1" ColumnName="c1_txt1" />
+                <ScalarProperty Name="c1_txt2" ColumnName="c1_txt2" />
+                <ScalarProperty Name="c1_txt3" ColumnName="c1_txt3" />
+                <ScalarProperty Name="c1_txt4" ColumnName="c1_txt4" />
+                <ScalarProperty Name="c1_txt5" ColumnName="c1_txt5" />
+                <ScalarProperty Name="c1_txt6" ColumnName="c1_txt6" />
+                <ScalarProperty Name="c2_txt1" ColumnName="c2_txt1" />
+                <ScalarProperty Name="c2_txt2" ColumnName="c2_txt2" />
+                <ScalarProperty Name="c3_txt1" ColumnName="c3_txt1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_mehmet_urun_Ekle_Guncelle" FunctionName="AkademikModel.Store.sp_mehmet_urun_Ekle_Guncelle" />
+          <FunctionImportMapping FunctionImportName="sp_mehmet_Urun_Sil" FunctionName="AkademikModel.Store.sp_mehmet_Urun_Sil" />
+          <FunctionImportMapping FunctionImportName="sp_mehmet_urunler_kategoriye_gore_liste_cek" FunctionName="AkademikModel.Store.sp_mehmet_urunler_kategoriye_gore_liste_cek">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AkademikModel.sp_mehmet_urunler_kategoriye_gore_liste_cek_Result">
+                <ScalarProperty Name="urun_id" ColumnName="urun_id" />
+                <ScalarProperty Name="urun_ad" ColumnName="urun_ad" />
+                <ScalarProperty Name="urun_aciklama" ColumnName="urun_aciklama" />
+                <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+                <ScalarProperty Name="kategori_url" ColumnName="kategori_url" />
+                <ScalarProperty Name="urun_kategori_id" ColumnName="urun_kategori_id" />
+                <ScalarProperty Name="kategori_ad" ColumnName="kategori_ad" />
+                <ScalarProperty Name="kategori_altktgr_id" ColumnName="kategori_altktgr_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_mehmet_user_pasword_update" FunctionName="AkademikModel.Store.sp_mehmet_user_pasword_update" />
+          <FunctionImportMapping FunctionImportName="sp_mehmettokak_nested_menu" FunctionName="AkademikModel.Store.sp_mehmettokak_nested_menu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AkademikModel.sp_mehmettokak_nested_menu_Result">
+                <ScalarProperty Name="menu_id" ColumnName="menu_id" />
+                <ScalarProperty Name="menu_ad" ColumnName="menu_ad" />
+                <ScalarProperty Name="menu_url" ColumnName="menu_url" />
+                <ScalarProperty Name="alt_ktgri_id" ColumnName="alt_ktgri_id" />
+                <ScalarProperty Name="alt_ktgri_ad" ColumnName="alt_ktgri_ad" />
+                <ScalarProperty Name="alt_ktgri_url" ColumnName="alt_ktgri_url" />
+                <ScalarProperty Name="alt_ktgri_menu_id" ColumnName="alt_ktgri_menu_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_mehmettokak_urunliste_cek" FunctionName="AkademikModel.Store.sp_mehmettokak_urunliste_cek">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AkademikModel.sp_mehmettokak_urunliste_cek_Result">
+                <ScalarProperty Name="urun_id" ColumnName="urun_id" />
+                <ScalarProperty Name="urun_ad" ColumnName="urun_ad" />
+                <ScalarProperty Name="urun_kategori_id" ColumnName="urun_kategori_id" />
+                <ScalarProperty Name="urun_aciklama" ColumnName="urun_aciklama" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

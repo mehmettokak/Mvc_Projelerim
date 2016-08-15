@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+    int i = 0;
+}
+@model IEnumerable<HaberWeb.Models.H_Gorusler>
+<aside id="block_opinions" class="content">
+    <ul>
+        @foreach (var item in Model)
+        {i++;
+            <li @(i % 2 == 0 ? "class='last'" : "")>
+                <article>
+                    <div class="photo"><a href="#"><img src="@item.aspnet_Users.H_Yazar.H_Y_ResimYol" alt="Photo" /></a></div>
+                    <div class="details">
+                        <h4 class="title"><a href="/Yazar/YazarDetay/@item.aspnet_Users.H_Yazar.H_Y_Adi-@item.aspnet_Users.H_Yazar.H_Y_Soyadi/@item.aspnet_Users.H_Yazar.H_Y_ID">@item.H_G_Baslik</a></h4>
+                        <p class="date">
+                            <time datetime="@item.H_G_Tarih.ToShortDateString()">@item.H_G_Tarih.ToString("dd MMMM yyyy")</time>
+                            <span class="comments_count"><a href="/Gorus/GorusGoster/@item.H_G_Baslik/@item.H_G_id">@item.H_Yorum.Count()</a></span>
+                        </p>
+                    </div>
+                    <p class="text">@(item.H_G_Icerik.Length>100 ? item.H_G_Icerik : item.H_G_Icerik.Substring(0,100)+"..."  )</p>
+                    <p class="text"><a href="/Gorus/GorusGoster/@item.H_G_Baslik/@item.H_G_id" class="view_all"><span><span>Tümünü Oku</span></span></a></p>
+                </article>
+            </li>
+        }
+        
+      
+    </ul>
+</aside>

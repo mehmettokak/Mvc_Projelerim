@@ -1,0 +1,139 @@
+﻿@{
+    ViewBag.Title = "HaberGoster";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    int i = 0;
+}
+@model HaberWeb.Models.Haber
+@*gelen id ye baglı tek deger icerdiği için ienurable kullanmadık*@
+@*@helper BegeniDurum(HaberWeb.Models.H_Yorum Yorum)
+{
+    if ((Yorum.H_Y_Begendim - Yorum.H_Y_Begenmedim) >= 0)
+    {
+        <span class="positive">+ <span id="artisazalis">@{Write(Yorum.H_Y_Begendim - Yorum.H_Y_Begenmedim);}</span></span>
+    }
+    else
+    {
+        <span class="negative"><span id="artisazalis1">@{Write(Yorum.H_Y_Begendim - Yorum.H_Y_Begenmedim);}</span></span>
+    }
+
+}*@
+
+<div id="container">
+    <div class="wrapper">
+        <div id="page">
+            <!-- content -->
+            <div id="content">
+                <div class="region">
+                    <article class="node">
+                        <h2 class="title">@Model.H_Baslik</h2>
+                        <div class="content block">
+                            <p class="date date_main">
+                                <time datetime="@Model.H_YayimTarihi.ToShortDateString()">@Model.H_YayimTarihi.ToString("dd MMMM yyyy")</time>
+                                <span class="author"><a href="#">@Model.aspnet_Users.H_Yazar.H_Y_Adi @Model.aspnet_Users.H_Yazar.H_Y_Soyadi</a></span><span class="comments_count"><a href="#">@Model.H_Yorum.Count</a></span> <span class="email_print_pdf"><a href="#" class="email"></a><a href="#" class="print"></a><a href="#" class="pdf"></a></span>
+                            </p>
+                            <!-- AddThis Button BEGIN -->
+                            <div class="addthis_toolbox addthis_default_style "> <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_google_plusone" g:plusone:size="medium"></a> <a class="addthis_counter addthis_pill_style"></a> </div>
+                            <script type="text/javascript" src="../../s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f3c188f442f3bf2"></script>
+                            <!-- AddThis Button END -->
+                            <section class="content">
+                                <b>@Model.H_ozet</b><br /><br />
+                                <p>
+                                    <img src="@Model.H_ResimYol" alt="@Model.H_Baslik" class="align_left" />
+
+
+                                    @Html.Raw(Model.H_icerik)
+                                </p>
+                                <p class="tags">
+                                    Etiketler :
+                                    @foreach (var item in Model.H_Etiket)
+                                    {
+                                        <a href="/Etiket/EtiketListele/@item.H_E_Adi/@item.H_E_ID">@item.H_E_Adi</a>
+                                    }
+                                </p>
+                            </section>
+                            <!-- AddThis Button BEGIN -->
+                            <div class="addthis_toolbox addthis_default_style " style="margin-bottom:12px;"> <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_google_plusone" g:plusone:size="medium"></a> <a class="addthis_counter addthis_pill_style"></a> <span class="email_print_pdf"><a href="#" class="email"></a><a href="#" class="print"></a><a href="#" class="pdf"></a></span></div>
+                            <script type="text/javascript" src="../../s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f3c188f442f3bf2"></script>
+                            <!-- AddThis Button END -->
+                            <p><a href="#comment_form" class="view_all"><span><span>Yorum yapmak ister misiniz?</span></span></a><span class="previous_next"></span></p>
+
+                            <section id="comments">
+                                <h3 class="block_title">@Model.H_Yorum.Count() Yorum</h3>
+                                <ul>
+                                    @foreach (var item in Model.H_Yorum)
+                                    {
+                                        i++;
+                                        <li>
+                                            <div class="details">
+                                                <div class="photo"></div>
+                                                <div class="name">
+                                                    <h4 class="title">@item.H_Y_AdSoyad</h4>
+                                                    <p class="date">
+                                                        <time datetime="@item.H_Y_YayimTarihi.ToString("yyyy-MM-dd")">@item.H_Y_YayimTarihi.ToString("dd MMMM yyyy HH:mm:ss")</time>
+                                                    </p>
+                                                </div>
+                                                <div class="rate"> <a href="javascript:void(0)" id="begendim_@item.H_Y_ID" class="rate_up"></a><span id="artisazalis_@item.H_Y_ID" class="@((item.H_Y_Begendim-item.H_Y_Begenmedim)>=0 ? "positive" : "negative")">@{ Write(item.H_Y_Begendim - item.H_Y_Begenmedim);} </span> <a href="javascript:void(0)" id="begenmedim_@item.H_Y_ID" class="rate_down"></a> </div>
+
+                                                <script>
+                                                    $("#begendim_@item.H_Y_ID").click(function () {
+                                                        $.ajax({
+                                                            type: "POST", url: "/Haber/YorumBegendim/", data: "id= @item.H_Y_ID", success: function (data) { $("#artisazalis_@item.H_Y_ID").html(data) }
+                                                        });
+                                                    });
+
+
+                                                    $("#begenmedim_@item.H_Y_ID").click(function () {
+                                                        $.ajax({
+                                                            type: "POST", url: "/Haber/YorumBegenmedim/", data: "id= @item.H_Y_ID", success: function (data) { $("#artisazalis_@item.H_Y_ID").html(data) }
+                                                        });
+                                                    });
+
+                                                </script>
+
+
+
+                                            </div>
+                                            <div class="content">
+                                                <p>@item.H_Y_Icerik </p>
+                                            </div>
+
+                                        </li>
+                                    }
+
+
+                                </ul>
+                            </section>
+                            <div id="comment_form">
+                                <h3 class="block_title">Yorumunuz?</h3>
+                                <p>Aliquam congue fermentum nisl prehenderit qui in ea voluptate velit esse quam nihil.</p>
+                                <form action="/Haber/YorumYap" method="post">
+                                    <input type="hidden" name="txtH_id" value="@Model.H_id " />
+                                    <div class="form-item">
+                                        <label for="edit-submitted-name">Ad Soyad :</label>
+                                        <input type="text" class="form-text" value="" size="60" id="edit-submitted-name" name="txtAdSoyad" maxlength="128" required />
+                                        <span title="Bu alanın doldurulması gereklidir." class="form-required">(Gerekli)</span>
+                                    </div>
+                                    <div class="form-item">
+                                        <label for="edit-submitted-email">Email:</label>
+                                        <input type="email" class="form-text" value="" size="60" id="edit-submitted-email" name="txtMail" maxlength="128" required />
+                                        <span title="Bu alanın doldurulması gereklidir." class="form-required">(Gerekli)</span>
+                                    </div>
+
+                                    <div class="form-item">
+                                        <label for="edit-submitted-message">Yorumunuz: </label>
+                                        <textarea class="form-textarea" id="edit-submitted-message" name="txtIcerik" rows="5" cols="60"></textarea>
+                                    </div>
+                                    <div id="edit-actions">
+                                        <button type="submit"><span class="view_all_medium"><span><span>Gönder</span></span></span></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </article>
+                    <span id="change_font_size"> <a href="#" class="font_size_down">A-</a> <a href="#" class="font_size_normal">A</a> <a href="#" class="font_size_up">A+</a></span>
+                </div>
+            </div>
+            <!-- end content -->
+        </div>
+    </div>
+</div>

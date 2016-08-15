@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AkademikModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="sp_mehmet_altkategori_ekle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ad" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="kategori_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_mehmet_altkategori_Guncelle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="ad" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="altkategorimenu_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_mehmet_altkategori_Sil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_mehmet_altkategoriye_gore_kategori_cek" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="kat_idd" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_mehmet_giris_kontrol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user" Type="nvarchar" Mode="In" />
+    <Parameter Name="pass" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_mehmet_Home_Sabit_Guncelle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="t_1" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="t_2" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="t_3" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="t_4" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="t_5" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="t_6" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="t_7" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="t_8" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="t_9" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="gelen" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_mehmet_homeBig_Image" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_mehmet_HomeImage_Guncelle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="ad" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="detay" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="urun_url" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="resim_ad" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_mehmet_iletisim_ekle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="fulname" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="email" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="desc" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="subject" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="durum" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="sp_mehmet_iletisim_getir" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_mehmet_Kategori_ekle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ad" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="kategori_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_mehmet_Kategori_Guncelle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="ad" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="kat_altkat_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_mehmet_kategori_Sil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_mehmet_kategorileri_cek" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_mehmet_kullanici_bilgi_getir" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_mehmet_Menu_Getir" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_mehmet_sabitler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_mehmet_urun_Ekle_Guncelle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="ad" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="detay" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="urun_kategori_id" Type="int" Mode="In" />
+    <Parameter Name="resim_ad" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_mehmet_Urun_Sil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_mehmet_urunler_kategoriye_gore_liste_cek" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="kattgri" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_mehmet_user_pasword_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="user" Type="nvarchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_mehmettokak_nested_menu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_mehmettokak_urunliste_cek" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="AkademikModelStoreContainer" />
+</Schema>

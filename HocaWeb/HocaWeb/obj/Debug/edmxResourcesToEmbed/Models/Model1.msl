@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AkademikModelStoreContainer" CdmEntityContainer="AkademikEntities">
+    <FunctionImportMapping FunctionImportName="sp_mehmet_altkategori_ekle" FunctionName="AkademikModel.Store.sp_mehmet_altkategori_ekle" />
+    <FunctionImportMapping FunctionImportName="sp_mehmet_altkategori_Guncelle" FunctionName="AkademikModel.Store.sp_mehmet_altkategori_Guncelle" />
+    <FunctionImportMapping FunctionImportName="sp_mehmet_altkategori_Sil" FunctionName="AkademikModel.Store.sp_mehmet_altkategori_Sil" />
+    <FunctionImportMapping FunctionImportName="sp_mehmet_altkategoriye_gore_kategori_cek" FunctionName="AkademikModel.Store.sp_mehmet_altkategoriye_gore_kategori_cek">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AkademikModel.sp_mehmet_altkategoriye_gore_kategori_cek_Result">
+          <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+          <ScalarProperty Name="kategori_ad" ColumnName="kategori_ad" />
+          <ScalarProperty Name="alt_ktgri_url" ColumnName="alt_ktgri_url" />
+          <ScalarProperty Name="alt_ktgri_id" ColumnName="alt_ktgri_id" />
+          <ScalarProperty Name="alt_ktgri_ad" ColumnName="alt_ktgri_ad" />
+          <ScalarProperty Name="kategori_url" ColumnName="kategori_url" />
+          <ScalarProperty Name="alt_ktgri_menu_id" ColumnName="alt_ktgri_menu_id" />
+          <ScalarProperty Name="kategori_altktgr_id" ColumnName="kategori_altktgr_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mehmet_giris_kontrol" FunctionName="AkademikModel.Store.sp_mehmet_giris_kontrol">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AkademikModel.sp_mehmet_giris_kontrol_Result">
+          <ScalarProperty Name="kullanici_adi" ColumnName="kullanici_adi" />
+          <ScalarProperty Name="kullanici_sifre" ColumnName="kullanici_sifre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mehmet_Home_Sabit_Guncelle" FunctionName="AkademikModel.Store.sp_mehmet_Home_Sabit_Guncelle" />
+    <FunctionImportMapping FunctionImportName="sp_mehmet_homeBig_Image" FunctionName="AkademikModel.Store.sp_mehmet_homeBig_Image">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AkademikModel.sp_mehmet_homeBig_Image_Result">
+          <ScalarProperty Name="H_img_id" ColumnName="H_img_id" />
+          <ScalarProperty Name="H_img_name" ColumnName="H_img_name" />
+          <ScalarProperty Name="H_img_url" ColumnName="H_img_url" />
+          <ScalarProperty Name="H_img_title" ColumnName="H_img_title" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mehmet_HomeImage_Guncelle" FunctionName="AkademikModel.Store.sp_mehmet_HomeImage_Guncelle" />
+    <FunctionImportMapping FunctionImportName="sp_mehmet_iletisim_ekle" FunctionName="AkademikModel.Store.sp_mehmet_iletisim_ekle" />
+    <FunctionImportMapping FunctionImportName="sp_mehmet_iletisim_getir" FunctionName="AkademikModel.Store.sp_mehmet_iletisim_getir">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AkademikModel.sp_mehmet_iletisim_getir_Result">
+          <ScalarProperty Name="iletisim_ad_soyad" ColumnName="iletisim_ad_soyad" />
+          <ScalarProperty Name="iletisim_id" ColumnName="iletisim_id" />
+          <ScalarProperty Name="iletisim_icerik" ColumnName="iletisim_icerik" />
+          <ScalarProperty Name="iletisim_email" ColumnName="iletisim_email" />
+          <ScalarProperty Name="iletisim_konu" ColumnName="iletisim_konu" />
+          <ScalarProperty Name="iletisim_durum" ColumnName="iletisim_durum" />
+          <ScalarProperty Name="iletisim_tarih" ColumnName="iletisim_tarih" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mehmet_Kategori_ekle" FunctionName="AkademikModel.Store.sp_mehmet_Kategori_ekle" />
+    <FunctionImportMapping FunctionImportName="sp_mehmet_Kategori_Guncelle" FunctionName="AkademikModel.Store.sp_mehmet_Kategori_Guncelle" />
+    <FunctionImportMapping FunctionImportName="sp_mehmet_kategori_Sil" FunctionName="AkademikModel.Store.sp_mehmet_kategori_Sil" />
+    <FunctionImportMapping FunctionImportName="sp_mehmet_kategorileri_cek" FunctionName="AkademikModel.Store.sp_mehmet_kategorileri_cek">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AkademikModel.sp_mehmet_kategorileri_cek_Result">
+          <ScalarProperty Name="kategori_ad" ColumnName="kategori_ad" />
+          <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+          <ScalarProperty Name="kategori_altktgr_id" ColumnName="kategori_altktgr_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mehmet_kullanici_bilgi_getir" FunctionName="AkademikModel.Store.sp_mehmet_kullanici_bilgi_getir">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AkademikModel.sp_mehmet_kullanici_bilgi_getir_Result">
+          <ScalarProperty Name="kullanici_id" ColumnName="kullanici_id" />
+          <ScalarProperty Name="kullanici_adi" ColumnName="kullanici_adi" />
+          <ScalarProperty Name="kullanici_sifre" ColumnName="kullanici_sifre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mehmet_Menu_Getir" FunctionName="AkademikModel.Store.sp_mehmet_Menu_Getir">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AkademikModel.sp_mehmet_Menu_Getir_Result">
+          <ScalarProperty Name="menu_ad" ColumnName="menu_ad" />
+          <ScalarProperty Name="menu_id" ColumnName="menu_id" />
+          <ScalarProperty Name="menu_url" ColumnName="menu_url" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mehmet_sabitler" FunctionName="AkademikModel.Store.sp_mehmet_sabitler">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AkademikModel.sp_mehmet_sabitler_Result">
+          <ScalarProperty Name="h_ıd" ColumnName="h_ıd" />
+          <ScalarProperty Name="h1_txt1" ColumnName="h1_txt1" />
+          <ScalarProperty Name="h1_txt2" ColumnName="h1_txt2" />
+          <ScalarProperty Name="h1_txt3" ColumnName="h1_txt3" />
+          <ScalarProperty Name="h2_txt1" ColumnName="h2_txt1" />
+          <ScalarProperty Name="h2_txt2" ColumnName="h2_txt2" />
+          <ScalarProperty Name="h2_txt3" ColumnName="h2_txt3" />
+          <ScalarProperty Name="c1_txt1" ColumnName="c1_txt1" />
+          <ScalarProperty Name="c1_txt2" ColumnName="c1_txt2" />
+          <ScalarProperty Name="c1_txt3" ColumnName="c1_txt3" />
+          <ScalarProperty Name="c1_txt4" ColumnName="c1_txt4" />
+          <ScalarProperty Name="c1_txt5" ColumnName="c1_txt5" />
+          <ScalarProperty Name="c1_txt6" ColumnName="c1_txt6" />
+          <ScalarProperty Name="c2_txt1" ColumnName="c2_txt1" />
+          <ScalarProperty Name="c2_txt2" ColumnName="c2_txt2" />
+          <ScalarProperty Name="c3_txt1" ColumnName="c3_txt1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mehmet_urun_Ekle_Guncelle" FunctionName="AkademikModel.Store.sp_mehmet_urun_Ekle_Guncelle" />
+    <FunctionImportMapping FunctionImportName="sp_mehmet_Urun_Sil" FunctionName="AkademikModel.Store.sp_mehmet_Urun_Sil" />
+    <FunctionImportMapping FunctionImportName="sp_mehmet_urunler_kategoriye_gore_liste_cek" FunctionName="AkademikModel.Store.sp_mehmet_urunler_kategoriye_gore_liste_cek">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AkademikModel.sp_mehmet_urunler_kategoriye_gore_liste_cek_Result">
+          <ScalarProperty Name="urun_id" ColumnName="urun_id" />
+          <ScalarProperty Name="urun_ad" ColumnName="urun_ad" />
+          <ScalarProperty Name="urun_aciklama" ColumnName="urun_aciklama" />
+          <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+          <ScalarProperty Name="kategori_url" ColumnName="kategori_url" />
+          <ScalarProperty Name="urun_kategori_id" ColumnName="urun_kategori_id" />
+          <ScalarProperty Name="kategori_ad" ColumnName="kategori_ad" />
+          <ScalarProperty Name="kategori_altktgr_id" ColumnName="kategori_altktgr_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mehmet_user_pasword_update" FunctionName="AkademikModel.Store.sp_mehmet_user_pasword_update" />
+    <FunctionImportMapping FunctionImportName="sp_mehmettokak_nested_menu" FunctionName="AkademikModel.Store.sp_mehmettokak_nested_menu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AkademikModel.sp_mehmettokak_nested_menu_Result">
+          <ScalarProperty Name="menu_id" ColumnName="menu_id" />
+          <ScalarProperty Name="menu_ad" ColumnName="menu_ad" />
+          <ScalarProperty Name="menu_url" ColumnName="menu_url" />
+          <ScalarProperty Name="alt_ktgri_id" ColumnName="alt_ktgri_id" />
+          <ScalarProperty Name="alt_ktgri_ad" ColumnName="alt_ktgri_ad" />
+          <ScalarProperty Name="alt_ktgri_url" ColumnName="alt_ktgri_url" />
+          <ScalarProperty Name="alt_ktgri_menu_id" ColumnName="alt_ktgri_menu_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mehmettokak_urunliste_cek" FunctionName="AkademikModel.Store.sp_mehmettokak_urunliste_cek">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AkademikModel.sp_mehmettokak_urunliste_cek_Result">
+          <ScalarProperty Name="urun_id" ColumnName="urun_id" />
+          <ScalarProperty Name="urun_ad" ColumnName="urun_ad" />
+          <ScalarProperty Name="urun_kategori_id" ColumnName="urun_kategori_id" />
+          <ScalarProperty Name="urun_aciklama" ColumnName="urun_aciklama" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

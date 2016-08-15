@@ -1,0 +1,19 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model IEnumerable<HaberWeb.Models.Haber>
+<aside id="block_breaking_news" class="block">
+    <h3 class="block_title">Breaking News:</h3>
+    <div class="content">
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li><a href="#">@item.H_Baslik</a></li>
+            }
+
+        </ul>
+    </div>
+</aside>
+

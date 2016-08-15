@@ -1,0 +1,19 @@
+﻿
+@{
+    Layout = null;
+}
+@model IEnumerable<HaberWeb.Models.Haber>
+
+<aside id="block_video" class="content">
+    <div class="video"></div>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li class="vimeo"><a href="@item.H_VideoYol"></a></li>
+
+        }
+       
+    </ul>
+    <p><a href="/Haber/TumVideoHaberleri" class="view_all"><span><span>Tüm Videolar</span></span></a></p>
+</aside>
+

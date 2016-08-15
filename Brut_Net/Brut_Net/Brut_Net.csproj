@@ -1,0 +1,839 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{046D1D9B-DCEC-4FB4-B26C-B761B74F19F3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Brut_Net</RootNamespace>
+    <AssemblyName>Brut_Net</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\bootstrap-responsive.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\icons.css" />
+    <Content Include="Content\css\icons\14x14\light\logoff.png" />
+    <Content Include="Content\css\icons\14x14\light\mail.png" />
+    <Content Include="Content\css\icons\icomoon\16px\7seg-eight.png" />
+    <Content Include="Content\css\icons\icomoon\16px\7seg-five.png" />
+    <Content Include="Content\css\icons\icomoon\16px\7seg-four.png" />
+    <Content Include="Content\css\icons\icomoon\16px\7seg-nine.png" />
+    <Content Include="Content\css\icons\icomoon\16px\7seg-one.png" />
+    <Content Include="Content\css\icons\icomoon\16px\7seg-seven.png" />
+    <Content Include="Content\css\icons\icomoon\16px\7seg-six.png" />
+    <Content Include="Content\css\icons\icomoon\16px\7seg-three.png" />
+    <Content Include="Content\css\icons\icomoon\16px\7seg-two.png" />
+    <Content Include="Content\css\icons\icomoon\16px\7seg-zero.png" />
+    <Content Include="Content\css\icons\icomoon\16px\accessibility2.png" />
+    <Content Include="Content\css\icons\icomoon\16px\address-book2.html" />
+    <Content Include="Content\css\icons\icomoon\16px\alarm-approve.png" />
+    <Content Include="Content\css\icons\icomoon\16px\alarm-cancel.png" />
+    <Content Include="Content\css\icons\icomoon\16px\amazon.png" />
+    <Content Include="Content\css\icons\icomoon\16px\amazon2.png" />
+    <Content Include="Content\css\icons\icomoon\16px\android.png" />
+    <Content Include="Content\css\icons\icomoon\16px\apple.png" />
+    <Content Include="Content\css\icons\icomoon\16px\arrow-down.png" />
+    <Content Include="Content\css\icons\icomoon\16px\arrow-down3.png" />
+    <Content Include="Content\css\icons\icomoon\16px\arrow-down4.png" />
+    <Content Include="Content\css\icons\icomoon\16px\arrow-down5.png" />
+    <Content Include="Content\css\icons\icomoon\16px\arrow-down7.png" />
+    <Content Include="Content\css\icons\icomoon\16px\arrow-down8.png" />
+    <Content Include="Content\css\icons\icomoon\32px\7seg-eight.png" />
+    <Content Include="Content\css\icons\icomoon\32px\7seg-five.png" />
+    <Content Include="Content\css\icons\icomoon\32px\7seg-four.png" />
+    <Content Include="Content\css\icons\icomoon\32px\7seg-nine.png" />
+    <Content Include="Content\css\icons\icomoon\32px\7seg-one.png" />
+    <Content Include="Content\css\icons\icomoon\32px\7seg-seven.png" />
+    <Content Include="Content\css\icons\icomoon\32px\7seg-six.png" />
+    <Content Include="Content\css\icons\icomoon\32px\7seg-three.png" />
+    <Content Include="Content\css\icons\icomoon\32px\7seg-two.png" />
+    <Content Include="Content\css\icons\icomoon\32px\7seg-zero.png" />
+    <Content Include="Content\css\icons\icomoon\32px\accessibility2.png" />
+    <Content Include="Content\css\icons\icomoon\32px\address-book2.png" />
+    <Content Include="Content\css\icons\icomoon\32px\alarm-approve.png" />
+    <Content Include="Content\css\icons\icomoon\32px\alarm-cancel.png" />
+    <Content Include="Content\css\icons\icomoon\32px\amazon.png" />
+    <Content Include="Content\css\icons\icomoon\32px\amazon2.png" />
+    <Content Include="Content\css\icons\icomoon\32px\android.png" />
+    <Content Include="Content\css\icons\icomoon\32px\apple.png" />
+    <Content Include="Content\css\icons\icomoon\32px\arrow-down.png" />
+    <Content Include="Content\css\icons\icomoon\32px\arrow-down3.png" />
+    <Content Include="Content\css\icons\icomoon\32px\arrow-down4.png" />
+    <Content Include="Content\css\icons\icomoon\32px\arrow-down5.png" />
+    <Content Include="Content\css\icons\icomoon\32px\arrow-down7.png" />
+    <Content Include="Content\css\icons\icomoon\32px\arrow-down8.png" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_01.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_02.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_03.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_04.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_05.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_06.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_07.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_08.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_09.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_10.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_100.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_101.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_102.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_103.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_104.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_105.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_106.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_107.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_108.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_109.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_11.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_110.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_111.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_112.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_113.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_114.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_115.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_116.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_117.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_118.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_119.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_12.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_120.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_121.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_122.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_123.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_124.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_125.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_126.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_127.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_128.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_129.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_13.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_130.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_131.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_132.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_133.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_134.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_135.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_136.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_137.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_138.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_139.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_14.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_140.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_141.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_142.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_143.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_144.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_145.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_146.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_147.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_148.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_149.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_15.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_150.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_151.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_152.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_153.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_154.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_155.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_156.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_157.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_158.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_159.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_16.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_160.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_161.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_162.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_163.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_164.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_165.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_166.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_167.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_168.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_169.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_17.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_170.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_171.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_172.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_173.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_174.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_175.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_176.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_177.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_178.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_179.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_18.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_180.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_181.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_182.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_183.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_184.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_185.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_186.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_187.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_188.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_189.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_19.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_190.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_191.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_192.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_193.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_194.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_195.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_196.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_197.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_198.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_20.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_200.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_201.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_202.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_203.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_204.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_205.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_206.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_207.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_208.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_209.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_21.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_210.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_211.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_212.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_213.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_214.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_215.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_216.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_217.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_218.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_219.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_22.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_220.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_221.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_222.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_223.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_224.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_225.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_226.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_227.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_228.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_229.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_23.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_230.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_231.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_232.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_233.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_234.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_235.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_236.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_237.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_238.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_239.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_24.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_240.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_241.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_242.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_243.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_244.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_245.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_246.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_247.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_248.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_249.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_25.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_250.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_251.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_252.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_253.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_254.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_255.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_256.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_257.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_258.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_259.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_26.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_260.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_261.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_262.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_263.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_264.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_265.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_266.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_267.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_268.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_269.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_27.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_270.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_271.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_272.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_273.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_274.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_275.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_276.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_277.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_278.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_279.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_28.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_280.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_281.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_282.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_283.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_284.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_285.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_286.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_287.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_288.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_289.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_29.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_290.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_291.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_292.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_293.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_294.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_295.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_296.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_297.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_298.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_299.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_30.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_300.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_301.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_302.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_303.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_304.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_305.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_306.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_307.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_309.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_31.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_310.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_311.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_312.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_313.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_314.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_315.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_316.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_317.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_318.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_319.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_32.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_320.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_321.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_322.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_323.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_324.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_325.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_326.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_327.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_328.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_329.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_33.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_330.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_331.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_332.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_333.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_334.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_335.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_336.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_337.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_338.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_339.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_34.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_340.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_341.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_342.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_343.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_344.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_345.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_346.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_347.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_348.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_349.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_35.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_350.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_351.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_352.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_353.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_354.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_355.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_356.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_357.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_358.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_359.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_36.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_360.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_361.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_362.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_363.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_364.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_365.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_366.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_37.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_38.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_39.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_40.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_41.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_42.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_43.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_44.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_45.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_46.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_47.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_48.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_49.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_50.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_51.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_52.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_53.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_54.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_55.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_56.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_57.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_58.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_59.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_60.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_61.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_62.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_63.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_64.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_65.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_66.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_67.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_68.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_69.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_70.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_71.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_72.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_73.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_74.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_75.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_76.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_77.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_78.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_79.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_80.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_81.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_82.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_83.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_84.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_85.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_86.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_87.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_88.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_89.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_90.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_91.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_92.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_93.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_94.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_95.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_96.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_97.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_98.gif" />
+    <Content Include="Content\css\icons\iconsweet2\iconsweets_99.gif" />
+    <Content Include="Content\css\ie.css" />
+    <Content Include="Content\css\ie8.css" />
+    <Content Include="Content\css\images\back_disabled.html" />
+    <Content Include="Content\css\images\back_enabled.jpg" />
+    <Content Include="Content\css\images\elements\forms\closeSelection.png" />
+    <Content Include="Content\css\images\forward_disabled.html" />
+    <Content Include="Content\css\images\forward_enabled.jpg" />
+    <Content Include="Content\css\images\searchSmall.png" />
+    <Content Include="Content\css\images\sort_asc.html" />
+    <Content Include="Content\css\images\sort_asc_disabled.html" />
+    <Content Include="Content\css\images\sort_both.html" />
+    <Content Include="Content\css\images\sort_desc.png" />
+    <Content Include="Content\css\images\sort_desc_disabled.png" />
+    <Content Include="Content\css\plugins\breadcrumbs.css" />
+    <Content Include="Content\css\plugins\chosen.css" />
+    <Content Include="Content\css\plugins\colorpicker.css" />
+    <Content Include="Content\css\plugins\dynamic_table.css" />
+    <Content Include="Content\css\plugins\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\css\plugins\jquery.cleditor.css" />
+    <Content Include="Content\css\plugins\jquery.ibutton.css" />
+    <Content Include="Content\css\plugins\jquery.qtip.min.css" />
+    <Content Include="Content\css\plugins\jquery.tagsinput.css" />
+    <Content Include="Content\css\plugins\jqueryFileTree.css" />
+    <Content Include="Content\css\plugins\lockscreen.css" />
+    <Content Include="Content\css\plugins\prettyPhoto.css" />
+    <Content Include="Content\css\plugins\tipsy.css" />
+    <Content Include="Content\css\plugins\ui_styling.css" />
+    <Content Include="Content\css\plugins\wave-calendar.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\file-manager\browse.html" />
+    <Content Include="Content\file-manager\css5176.php¿type=files.html" />
+    <Content Include="Content\file-manager\js\browser\joiner.php.html" />
+    <Content Include="Content\file-manager\js\helper.js" />
+    <Content Include="Content\file-manager\js\jquery.drag.js" />
+    <Content Include="Content\file-manager\js\jquery.js" />
+    <Content Include="Content\file-manager\js\jquery.rightClick.js" />
+    <Content Include="Content\file-manager\themes\oxygen\img\alert.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\bg_transparent.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\confirm.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\about.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\clipboard-add.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\clipboard-clear.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\clipboard.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\close-clicked.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\close-hover.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\close.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\copy.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\delete.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\download.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\folder-new.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\maximize.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\move.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\refresh.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\rename.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\select.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\settings.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\upload.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\icons\view.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\kcf_logo.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\loading.gif" />
+    <Content Include="Content\file-manager\themes\oxygen\img\tree\denied.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\tree\folder.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\tree\folder_current.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\tree\minus.png" />
+    <Content Include="Content\file-manager\themes\oxygen\img\tree\plus.png" />
+    <Content Include="Content\file-manager\themes\oxygen\init.js" />
+    <Content Include="Content\file-manager\themes\oxygen\style.css" />
+    <Content Include="Content\file-manager\themes\oxygen\themes\oxygen\img\loading.gif" />
+    <Content Include="Content\ico\apple-touch-icon-114-precomposed.png" />
+    <Content Include="Content\ico\apple-touch-icon-144-precomposed.png" />
+    <Content Include="Content\ico\apple-touch-icon-57-precomposed.png" />
+    <Content Include="Content\ico\apple-touch-icon-72-precomposed.png" />
+    <Content Include="Content\ico\favicon.ico" />
+    <Content Include="Content\images\elements\ui\pageOverlay.png" />
+    <Content Include="Content\images\jquery_ui\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\images\jquery_ui\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\images\jquery_ui\ui-icons_222222_256x240.png" />
+    <Content Include="Content\images\jquery_ui\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\images\jquery_ui\ui-icons_454545_256x240.png" />
+    <Content Include="Content\images\jquery_ui\ui-icons_888888_256x240.png" />
+    <Content Include="Content\images\jquery_ui\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\img\575317_4896827749004_1840067788_n.jpg" />
+    <Content Include="Content\img\ajax-preloaders\loaderB16.gif" />
+    <Content Include="Content\img\arrow-down.png" />
+    <Content Include="Content\img\away.png" />
+    <Content Include="Content\img\breadarrow.png" />
+    <Content Include="Content\img\chat-avatar-1.png" />
+    <Content Include="Content\img\chat-avatar.png" />
+    <Content Include="Content\img\decrease.png" />
+    <Content Include="Content\img\divider-center.png" />
+    <Content Include="Content\img\dropdown-icon.png" />
+    <Content Include="Content\img\file-error.png" />
+    <Content Include="Content\img\file-queue.png" />
+    <Content Include="Content\img\file-success.png" />
+    <Content Include="Content\img\form-elements\addfile.png" />
+    <Content Include="Content\img\form-elements\checkboxes.png" />
+    <Content Include="Content\img\form-elements\iButton.png" />
+    <Content Include="Content\img\form-elements\no.png" />
+    <Content Include="Content\img\form-elements\radios.png" />
+    <Content Include="Content\img\form-elements\selectarrow.png" />
+    <Content Include="Content\img\form-elements\yes.png" />
+    <Content Include="Content\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\img\glyphicons-halflings.png" />
+    <Content Include="Content\img\headings-bg.png" />
+    <Content Include="Content\img\icon-settings.png" />
+    <Content Include="Content\img\increase.png" />
+    <Content Include="Content\img\login-photo.png" />
+    <Content Include="Content\img\logo-bigger.png" />
+    <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\main-bg-dark.png" />
+    <Content Include="Content\img\main-bg.png" />
+    <Content Include="Content\img\main-menu-separator.png" />
+    <Content Include="Content\img\main-navigation-bg.png" />
+    <Content Include="Content\img\main-navigation-closed.png" />
+    <Content Include="Content\img\main-navigation-opened.png" />
+    <Content Include="Content\img\neutral.png" />
+    <Content Include="Content\img\offline.png" />
+    <Content Include="Content\img\online.png" />
+    <Content Include="Content\img\pattern1.png" />
+    <Content Include="Content\img\pattern2.png" />
+    <Content Include="Content\img\pattern3.png" />
+    <Content Include="Content\img\pattern4.png" />
+    <Content Include="Content\img\pattern5.png" />
+    <Content Include="Content\img\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="Content\img\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="Content\img\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="Content\img\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="Content\img\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="Content\img\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="Content\img\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="Content\img\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="Content\img\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="Content\img\prettyPhoto\default\default_thumb.png" />
+    <Content Include="Content\img\prettyPhoto\default\loader.gif" />
+    <Content Include="Content\img\prettyPhoto\default\sprite.png" />
+    <Content Include="Content\img\prettyPhoto\default\sprite_next.png" />
+    <Content Include="Content\img\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="Content\img\prettyPhoto\default\sprite_x.png" />
+    <Content Include="Content\img\prettyPhoto\default\sprite_y.png" />
+    <Content Include="Content\img\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="Content\img\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="Content\img\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="Content\img\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="Content\img\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="Content\img\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="Content\img\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="Content\img\prettyPhoto\facebook\loader.gif" />
+    <Content Include="Content\img\prettyPhoto\facebook\sprite.png" />
+    <Content Include="Content\img\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="Content\img\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="Content\img\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="Content\img\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="Content\img\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="Content\img\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="Content\img\prettyPhoto\light_square\sprite.png" />
+    <Content Include="Content\img\search-icon.png" />
+    <Content Include="Content\img\strip-pattern.png" />
+    <Content Include="Content\img\switch-arrow.png" />
+    <Content Include="Content\img\ui-elements\datePicker.png" />
+    <Content Include="Content\img\ui-elements\slider-handler.png" />
+    <Content Include="Content\img\ui-elements\spinnerArrows.png" />
+    <Content Include="Content\js\3d-login\script.html" />
+    <Content Include="Content\js\antiscroll\antiscroll.js" />
+    <Content Include="Content\js\bootstrapPlugins\bootstrap-alert.js" />
+    <Content Include="Content\js\bootstrapPlugins\bootstrap-button.js" />
+    <Content Include="Content\js\bootstrapPlugins\bootstrap-carousel.js" />
+    <Content Include="Content\js\bootstrapPlugins\bootstrap-collapse.js" />
+    <Content Include="Content\js\bootstrapPlugins\bootstrap-dropdown.js" />
+    <Content Include="Content\js\bootstrapPlugins\bootstrap-modal.js" />
+    <Content Include="Content\js\bootstrapPlugins\bootstrap-popover.js" />
+    <Content Include="Content\js\bootstrapPlugins\bootstrap-scrollspy.js" />
+    <Content Include="Content\js\bootstrapPlugins\bootstrap-tab.js" />
+    <Content Include="Content\js\bootstrapPlugins\bootstrap-tooltip.js" />
+    <Content Include="Content\js\bootstrapPlugins\bootstrap-transition.js" />
+    <Content Include="Content\js\bootstrapPlugins\bootstrap-typeahead.js" />
+    <Content Include="Content\js\bootstrapPlugins\bootstrap.js" />
+    <Content Include="Content\js\calendar.js" />
+    <Content Include="Content\js\charts.js" />
+    <Content Include="Content\js\chosen\chosen.jquery.js" />
+    <Content Include="Content\js\cleditor\images\buttons.gif" />
+    <Content Include="Content\js\cleditor\images\toolbar.gif" />
+    <Content Include="Content\js\cleditor\jquery.cleditor.min.js" />
+    <Content Include="Content\js\colorPicker\colorpicker.js" />
+    <Content Include="Content\js\colorPicker\images\colorpicker_background.png" />
+    <Content Include="Content\js\colorPicker\images\colorpicker_hex.png" />
+    <Content Include="Content\js\colorPicker\images\colorpicker_hsb_b.png" />
+    <Content Include="Content\js\colorPicker\images\colorpicker_hsb_h.png" />
+    <Content Include="Content\js\colorPicker\images\colorpicker_hsb_s.png" />
+    <Content Include="Content\js\colorPicker\images\colorpicker_indic.gif" />
+    <Content Include="Content\js\colorPicker\images\colorpicker_overlay.png" />
+    <Content Include="Content\js\colorPicker\images\colorpicker_rgb_b.png" />
+    <Content Include="Content\js\colorPicker\images\colorpicker_rgb_g.png" />
+    <Content Include="Content\js\colorPicker\images\colorpicker_rgb_r.png" />
+    <Content Include="Content\js\colorPicker\images\colorpicker_select.gif" />
+    <Content Include="Content\js\colorPicker\images\colorpicker_submit.png" />
+    <Content Include="Content\js\common.js" />
+    <Content Include="Content\js\cookie\jquery.cookie.min.js" />
+    <Content Include="Content\js\dashboard.js" />
+    <Content Include="Content\js\dataTable\jquery.dataTables.min.js" />
+    <Content Include="Content\js\debonucedResize\jquery.debouncedresize.min.js" />
+    <Content Include="Content\js\easyTabs\jquery.easytabs.min.js" />
+    <Content Include="Content\js\fancybox\jquery.easing-1.3.pack.html" />
+    <Content Include="Content\js\fancybox\jquery.easing-1.3.pack.js" />
+    <Content Include="Content\js\fancybox\jquery.fancybox-1.3.4.js" />
+    <Content Include="Content\js\fancybox\jquery.fancybox-1.3.4.pack.html" />
+    <Content Include="Content\js\fancybox\jquery.fancybox-1.3.4.pack.js" />
+    <Content Include="Content\js\fancybox\jquery.mousewheel-3.0.4.pack.js" />
+    <Content Include="Content\js\flot\excanvas.js" />
+    <Content Include="Content\js\flot\jquery.flot.js" />
+    <Content Include="Content\js\flot\jquery.flot.pie.js" />
+    <Content Include="Content\js\flot\jquery.flot.resize.js" />
+    <Content Include="Content\js\form-wizard\bbq.js" />
+    <Content Include="Content\js\form-wizard\jquery.form.js" />
+    <Content Include="Content\js\form-wizard\jquery.form.wizard.js" />
+    <Content Include="Content\js\forms.js" />
+    <Content Include="Content\js\fullcalendar\excanvas.min.js" />
+    <Content Include="Content\js\fullcalendar\fullcalendar.js" />
+    <Content Include="Content\js\google-code-prettify\prettify.css" />
+    <Content Include="Content\js\google-code-prettify\prettify.js" />
+    <Content Include="Content\js\iButton\jquery.ibutton.js" />
+    <Content Include="Content\js\iButton\jquery.metadata.js" />
+    <Content Include="Content\js\ie\respond.min.js" />
+    <Content Include="Content\js\jquery-1.7.2.min.js" />
+    <Content Include="Content\js\jqueryFileTree\images\application.png" />
+    <Content Include="Content\js\jqueryFileTree\images\code.png" />
+    <Content Include="Content\js\jqueryFileTree\images\css.png" />
+    <Content Include="Content\js\jqueryFileTree\images\db.png" />
+    <Content Include="Content\js\jqueryFileTree\images\directory.png" />
+    <Content Include="Content\js\jqueryFileTree\images\doc.png" />
+    <Content Include="Content\js\jqueryFileTree\images\file.png" />
+    <Content Include="Content\js\jqueryFileTree\images\film.png" />
+    <Content Include="Content\js\jqueryFileTree\images\flash.png" />
+    <Content Include="Content\js\jqueryFileTree\images\folder_open.png" />
+    <Content Include="Content\js\jqueryFileTree\images\html.png" />
+    <Content Include="Content\js\jqueryFileTree\images\java.png" />
+    <Content Include="Content\js\jqueryFileTree\images\linux.png" />
+    <Content Include="Content\js\jqueryFileTree\images\music.png" />
+    <Content Include="Content\js\jqueryFileTree\images\pdf.png" />
+    <Content Include="Content\js\jqueryFileTree\images\php.png" />
+    <Content Include="Content\js\jqueryFileTree\images\picture.png" />
+    <Content Include="Content\js\jqueryFileTree\images\ppt.png" />
+    <Content Include="Content\js\jqueryFileTree\images\psd.png" />
+    <Content Include="Content\js\jqueryFileTree\images\ruby.png" />
+    <Content Include="Content\js\jqueryFileTree\images\script.png" />
+    <Content Include="Content\js\jqueryFileTree\images\spinner.gif" />
+    <Content Include="Content\js\jqueryFileTree\images\txt.png" />
+    <Content Include="Content\js\jqueryFileTree\images\xls.png" />
+    <Content Include="Content\js\jqueryFileTree\images\zip.png" />
+    <Content Include="Content\js\jqueryFileTree\jqueryFileTree.js" />
+    <Content Include="Content\js\jqueryTags\jquery.tagsinput.min.js" />
+    <Content Include="Content\js\jqueryui\jquery-ui-1.8.21.custom.min.js" />
+    <Content Include="Content\js\jqueryui\jquery.spinners.min.js" />
+    <Content Include="Content\js\jqueryui\ui.selectmenu.js" />
+    <Content Include="Content\js\lockscreen\lockscreen.js" />
+    <Content Include="Content\js\maskedInputs\jquery.maskedinput-1.3.js" />
+    <Content Include="Content\js\prettyPhoto\jquery.prettyPhoto.js" />
+    <Content Include="Content\js\qtip\jquery.qtip.min.js" />
+    <Content Include="Content\js\sparklines\jquery.sparkline.js" />
+    <Content Include="Content\js\superTextarea\jquery.supertextarea.min.js" />
+    <Content Include="Content\js\tables.js" />
+    <Content Include="Content\js\tipsy\jquery.tipsy.js" />
+    <Content Include="Content\js\uniform\jquery.uniform.min.js" />
+    <Content Include="Content\js\validate\jquery.validate.min.js" />
+    <Content Include="Content\js\validationEngine\jquery.validationEngine-en.js" />
+    <Content Include="Content\js\validationEngine\jquery.validationEngine.js" />
+    <Content Include="Content\js\xBreadcrumbs\xbreadcrumbs.js" />
+    <Content Include="Content\uploads\image001.jpg" />
+    <Content Include="Content\uploads\image002.jpg" />
+    <Content Include="Content\uploads\image003.jpg" />
+    <Content Include="Content\uploads\image004.jpg" />
+    <Content Include="Content\uploads\image005.jpg" />
+    <Content Include="Content\uploads\image006.jpg" />
+    <Content Include="Content\uploads\image007.jpg" />
+    <Content Include="Content\uploads\image008.jpg" />
+    <Content Include="Content\uploads\image009.jpg" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AnasayfaController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper.cs" />
+    <Compile Include="Models\Bilgiler.cs" />
+    <Compile Include="Models\Genel.cs" />
+    <Compile Include="Models\GenelToplam.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\shared\Layout.cshtml" />
+    <Content Include="Views\Anasayfa\Net_Brut_Hesaplama.cshtml" />
+    <Content Include="Content\file-manager\js_localize6dc5.php¿lng=en" />
+    <Content Include="Views\Anasayfa\Net_maas.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1995</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1995/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

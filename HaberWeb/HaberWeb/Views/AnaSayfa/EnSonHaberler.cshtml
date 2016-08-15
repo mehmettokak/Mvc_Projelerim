@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = null;
+   int  i=0;
+}
+@model IEnumerable<HaberWeb.Models.Haber>
+<aside id="block_latest_headlines" class="block">
+    <h3 class="block_title">Taze Haberler</h3>
+    <div class="content">
+        <ul>
+            @foreach (var item in Model)
+            {
+                i++;
+                <li @(i==1 ? "class=first" : ""  ) @(i == 7 ? "class=Last" : "")  ><a href="/Haber/HaberGoster/@item.H_Baslik/@item.H_id">@item.H_Baslik</a></li>
+
+            }
+          
+        </ul>
+        <p><a href="/Haber/TumSonHaberler" class="view_all"><span><span>Bütün Haberler</span></span></a></p>
+    </div>
+</aside>
+

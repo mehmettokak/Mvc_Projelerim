@@ -1,0 +1,61 @@
+﻿@model HocaWeb.Models.Genel
+@{
+    ViewBag.Title = "Miscellaneous";
+    Layout = "~/Views/shared/_Layout.cshtml";
+    //bool sonuc = !Request.Url.ToString().Contains("#");
+    int j = 0;
+}
+
+<section id="content">
+    <div class="page3-row1 pad-2 tabs">
+
+
+        <div class="col-8-2">
+            <h2 class="h2 p2">Akademik Kariyer</h2>
+            <ul class="list-1 nav">
+                @foreach (var item in Model.Kategori_Listeleri)
+                {
+                    j++;
+                    <li @(j == 1 @*&& sonuc*@ ? "class=selected" : "")><a href="#tab-@item.Kategori_ID">@item.Kategori_AD</a></li>
+                }
+
+
+            </ul>
+        </div>
+        <h3 class="h3-2">Kategori</h3>
+        @foreach (var item in Model.Kategori_Listeleri)
+        {
+
+
+            <div class="col-17-1">
+                <div id="tab-@item.Kategori_ID" class="tab-content gallery-photo">
+                  
+                    <ul class="list-3">
+
+                        @foreach (var item1 in Model.urun_listeleri.Where(x => x.Urun_Kategori_Id == item.Kategori_ID).ToList())
+                        {
+
+                            <li>
+
+                                <span class="date"><span>@item1.UrunAdi.Substring(0, 2)</span>@item1.UrunAdi.Substring(2, 2)</span><span class="extra-wrap">
+                                    <a href="#">@item.Kategori_AD</a><br>
+                                    nec tristique. Sed sed felis arcu, vel vehicula augue sagittis cursus. Fusce tincidunt, tellus
+                                    eget tristique cursus, orci mi iaculis sem.
+                                </span>
+
+                            </li>
+
+                        }
+
+
+                    </ul>
+                </div>
+
+            </div>
+        }
+
+
+
+    </div>
+
+</section>

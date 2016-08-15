@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "Mesajlar";
+    Layout = "~/Views/shared/admin_Layout.cshtml";
+}
+@{
+    List<HocaWeb.Models.iletisim> ILETISIM = null;
+    if (Model == null)
+    {
+        var d = new HocaWeb.Models.Genel();
+        ILETISIM = d.Iletisim;
+    }
+    var iletisimsayisi = ILETISIM.Where(x=>x.iletisim_durum==false);
+    var K = new HocaWeb.Models.Genel();
+}
+<h2>Mesajlar</h2>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    @foreach (var item in ILETISIM.OrderByDescending(x=>x.iletisim_Id))
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#@item.iletisim_Id" aria-expanded="true" aria-controls="collapseOne">
+                          @item.iletisim_Ad_Soyad - @item.iletisim_konu - <small style="float:right;">@Html.Raw(K.SuraYaz(item.iletisim_tarih))</small>
+                    </a>
+                </h4>
+            </div>
+            <div id="@item.iletisim_Id" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingOne">
+                <!-- DIRECT CHAT SUCCESS -->
+                <div class="box box-success direct-chat direct-chat-success">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">@item.iletisim_Ad_Soyad</h3>
+                      
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                        <!-- Conversations are loaded here -->
+                        <div class="direct-chat-messages">
+                            <!-- Message. Default to the left -->
+                            <div class="direct-chat-msg">
+                                <div class="direct-chat-info clearfix">
+                                    <span class="direct-chat-name pull-left" style="color:green;">@item.iletisim_konu Hakkında</span>
+                                    <span class="direct-chat-timestamp pull-right">@Html.Raw(K.SuraYaz(item.iletisim_tarih))</span>
+                                </div><!-- /.direct-chat-info -->
+                                <img class="direct-chat-img" src="../css1/dist/img/user1-128x128.jpg" alt="message user image"><!-- /.direct-chat-img -->
+                                <div style="word-wrap:break-word;"  class="direct-chat-text">
+                                   @item.iletisim_Icerik
+                                </div><!-- /.direct-chat-text -->
+                            </div><!-- /.direct-chat-msg -->
+                            <!-- Message to the right -->
+                            
+                        </div>    
+                    </div><!-- /.box-body -->
+                    <div class="box-footer">
+                        <form action="#" method="post">
+                            <div class="input-group">
+                                <input type="text" name="email"  value="@item.email" style="display:none;">
+                                <input type="text" name="fulname" value="@item.iletisim_Ad_Soyad" style="display:none;">
+                                <input type="text" name="subject" value="@item.iletisim_konu" style="display:none;">
+                              
+                            </div>
+                            </form>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-success btn-flat" style="float:right;" data-toggle="modal" data-target="#mehmet" data-whatever="mdo">Cevapla</button>
+                        </span>
+
+                        <div class="modal fade" id="mehmet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+                                    </div>
+                      
+                                                  <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="control-label">Alıcı</label>
+                                                <input type="text" name="EMAIL" value="@item.email" class="form-control" id="recipient-name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">Message:</label>
+                                                <textarea class="form-control" id="message-text"></textarea>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Send message</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div><!-- /.box-footer-->
+                </div><!--/.direct-chat -->
+            </div>
+        </div>
+    }
+
+</div>

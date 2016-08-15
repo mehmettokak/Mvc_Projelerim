@@ -1,0 +1,83 @@
+﻿@model HocaWeb.Models.Genel
+@{
+    ViewBag.Title = "Field Works";
+    Layout = "~/Views/shared/_Layout.cshtml";
+    bool sonuc = !Request.Url.ToString().Contains("#");
+    int j = 0;
+    int a = 0;
+}
+
+<section id="content">
+    <div class="page3-row1 pad-2 tabs">
+        <div class="col-8-1">
+            <h2 class="h2 p2">Fellowships</h2>
+            <ul class="list-1 nav">
+                @foreach (var item in Model.Kategori_Listeleri)
+                {
+                    j++;
+                    <li @(j == 1 && sonuc ? "class=selected" : "")><a href="#tab-@item.Kategori_ID">@item.Kategori_AD</a></li>
+                }
+
+
+            </ul>
+        </div>
+
+        <div class="col-9-1">
+            <h3 class="h31">Kategori adları</h3>
+            @foreach (var item in Model.Kategori_Listeleri)
+            {
+
+                <div id="tab-@item.Kategori_ID" class="tab-content gallery-photo">
+                    <div class="inner">
+                        <ul id="mycarousel-1" class="jcarousel-skin-tango">
+
+                            <li>
+                                @foreach (var item1 in Model.urun_listeleri.Where(x => x.Urun_Kategori_Id == item.Kategori_ID))
+                                {
+                                    a++;
+
+                                    <a class="plus" href="@item1.UrunAdi"><img style="width:185px;height:98px;" src="@item1.UrunAdi" alt="" /></a>
+
+                                    if (a % 4 == 0)
+                                    {<text>
+                                        @Html.Raw("</li><li>")
+                                    </text>
+                                    }
+                                }
+                                @{a = 0;}
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+
+            }
+
+
+        </div>
+
+
+
+    </div>
+
+</section>
+<script>
+    $(document).ready(function () {
+        jQuery('#mycarousel-1, #mycarousel-2, #mycarousel-3, #mycarousel-4, #mycarousel-5, #mycarousel-6, #mycarousel-7').jcarousel({
+            horisontal: true,
+            wrap: 'circular',
+            scroll: 1,
+            easing: 'easeInOutBack',
+            animation: 1200
+        });
+        $("a.plus").fancybox({
+            'transitionIn': 'elastic',
+            'transitionOut': 'elastic',
+            'speedIn': 600,
+            'speedOut': 200,
+            'overlayShow': true
+        })
+    });
+</script>
+

@@ -1,0 +1,228 @@
+﻿@model HocaWeb.Models.adminGenel
+@{
+    ViewBag.Title = "kategori";
+    Layout = "~/Views/shared/admin_Layout.cshtml";
+    int i = 0;
+}
+@{
+    List<HocaWeb.Models.altkategori> ALTKATEGORI = null;
+    if (Model == null)
+    {
+        var d = new HocaWeb.Models.adminGenel();
+        ALTKATEGORI = d.Altkategoriler;
+    }
+    else
+    {
+        ALTKATEGORI = Model.Altkategoriler;
+    }
+    List<HocaWeb.Models.Menu_Kategorileri> MENUKATEGORI = null;
+    if (Model == null)
+    {
+        var d = new HocaWeb.Models.adminGenel();
+        MENUKATEGORI = d.MenuKategori;
+    }
+    else
+    {
+        MENUKATEGORI = Model.MenuKategori;
+    }
+    List<HocaWeb.Models.Kategori> KATEGORI = null;
+    if (Model == null)
+    {
+        var d = new HocaWeb.Models.adminGenel();
+        KATEGORI = d.Kategoriler;
+    }
+    else
+    {
+        KATEGORI = Model.Kategoriler;
+    }
+
+}
+<h2>Add Categories</h2>
+
+<div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        @foreach (var item in MENUKATEGORI)
+        {
+
+
+            <li role="presentation"><a href="#@item.MenuAd" aria-controls="@item.MenuAd" role="tab" data-toggle="tab">@item.MenuAd Categories</a></li>
+        }
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+
+        @foreach (var item in MENUKATEGORI)
+        {
+
+            <div role="tabpanel" class="tab-pane" id="@item.MenuAd">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Add Categories </h3> 
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <form class="form-horizontal" action="/Admin/Add-Category" method="post">
+                        <div class="box-body">
+                            @*<input type="text"   name="id" style="display:none;"  />*@
+                            <div class="form-group">
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="ad" placeholder="Add Sub-Categories">
+                                </div>
+                            </div>
+
+                            <select name="kat_ID" class="form-control select2" style="width: 83%;">
+                                <option value="0">Choose To Menu Categories</option>
+                                @foreach (var item1 in ALTKATEGORI.Where(x => x.altkat_menuIid == @item.MenuId))
+                                {
+                                    <option value="@item1.altKtgriId">@item1.altKtgoriadi</option>
+                                }
+
+
+
+                            </select>
+                        </div><!-- /.box-body -->
+                        <div class="box-footer">
+
+                            <button type="submit" class="btn btn-info pull-right">Add</button>
+                        </div><!-- /.box-footer -->
+
+                    </form>
+                </div>
+
+            </div>
+        }
+
+
+    </div>
+
+
+
+</div>
+
+@*--------------------------Kategori Guncelle-Sil------------------------------------------------*@
+
+<h2>Update-Delete Categories</h2>
+
+<div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        @foreach (var item in MENUKATEGORI)
+        {
+
+
+            <li role="presentation"><a href="#@item.MenuId" aria-controls="@item.MenuAd" role="tab" data-toggle="tab">@item.MenuAd </a></li>
+        }
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+
+        @foreach (var item in MENUKATEGORI)
+        {
+
+
+
+            <div role="tabpanel" class="tab-pane" id="@item.MenuId">
+
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    @foreach (var item1 in ALTKATEGORI.Where(x => x.altkat_menuIid == item.MenuId))
+                    {
+                        i++;
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="@item1.altkat_menuIid">
+                                <h4 class="panel-title">
+                                    <a @(i == 1 ? "" : "class=collapsed") role="button" data-toggle="collapse" data-parent="#accordion" href="#@item1.altKtgoriadi" aria-expanded="@(i == 1 ? true : false)" aria-controls="@item1.altKtgoriadi">
+                                        @item1.altKtgoriadi
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="@item1.altKtgoriadi" class="panel-collapse collapse @(i == 1 ? "in" : "")" role="tabpanel" aria-labelledby="@item1.altkat_menuIid">
+
+                                @foreach (var item2 in KATEGORI.Where(x => x.Kategori_altktgri_id == item1.altKtgriId))
+                                {
+                                    <div class="panel-body">
+                                        @item2.Kategoriadi
+
+                                        <div style="margin-top:-20px;">
+                                            <button style="margin-left:5px;" type="submit" class="btn btn-info pull-right" data-toggle="modal" data-target="#u-@item2.KategoriId">Update </button>
+                                            <button type="submit" class="btn btn-info pull-right" data-toggle="modal" data-target="#d1-@item2.KategoriId">Delete</button>
+                                            @*-------------------------Kategori Guncelle---------------------------*@
+                                            <form action="/Admin/Update-Category" method="post">
+                                                <div class="modal fade" id="u-@item2.KategoriId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="false">&times;</span></button>
+                                                                @*<h4 class="close" id="@item2.KategoriId">@item2.Kategoriadi</h4>*@
+                                                            </div>
+
+                                                            <div class="modal-body">
+
+                                                                <div class="form-group">
+                                                                    <label for="recipient-name" class="control-label">New Category Name</label>
+                                                                    <input name="ktgradi" type="text" class="form-control" id="recipient-name" value="@item2.Kategoriadi">
+                                                                    <input name="Kat_altkatgriId" value="@item2.Kategori_altktgri_id" type="text" class="form-control" id="recipient-name" style="display:none;">
+                                                                    <input name="ktgriId" value="@item2.KategoriId" type="text" class="form-control" id="recipient-name" style="display:none;">
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                @*<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>*@
+                                                                <button type="submit" class="btn btn-primary">Update</button>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            @*-------------------------Kategori Sil--------------------------*@
+                                            <form action="/Admin/Delete-Category" method="post">
+                                                <div class="modal fade" id="d1-@item2.KategoriId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="false">&times;</span></button>
+                                                                @*<h4 class="close" id="@item2.KategoriId">@item2.Kategoriadi</h4>*@
+                                                            </div>
+
+                                                            <div class="modal-body">
+
+                                                                <div class="form-group">
+                                                                    <label for="recipient-name" class="control-label">Delete Category </label>
+                                                                    <input name="ktgradi" type="text" class="form-control" id="recipient-name" value="@item2.Kategoriadi">
+                                                                   
+                                                                    <input name="ktgriId" value="@item2.KategoriId" type="text" class="form-control" id="recipient-name" style="display:none;">
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                @*<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>*@
+                                                                <button type="submit" class="btn btn-primary">Delete</button>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+
+
+                                }
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+
+            </div>
+        }
+
+
+
+    </div>
+
+
+
+</div>

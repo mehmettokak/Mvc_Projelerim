@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/shared/_Layout.cshtml";
+}
+
+<section id="content">
+    <div class="pad-1">
+        <div class="page6-row1">
+            <div class="col-14">
+                <h2 class="h2">Contact info:</h2>
+                <dl>
+                    <dt class="clr-1">ISTANBUL UNIVERSITY, FACULTY OF ENGINEERING, DEPT. OF GEOPHYSICAL   ENGINEERING,34320,AVCILAR CAMPUS, ISTANBUL-TURKEY.</dt>
+                    <dd><span>Phone:</span>(+90) 212 473 70 70 ext. 17565</dd>
+                    <dd><span>Fax:</span>  (+90) 212 473 71 80</dd>
+                    <dd class="p6"><span>Email-1:</span><a href="#" class="link">kanli@istanbul.edu.tr</a></dd>
+                    <dd class="p6"><span>Email-2:</span><a href="#" class="link">kanli@istanbul.edu.tr</a></dd>
+                   
+                   
+                </dl>
+            </div>
+            <div class="col-15">
+                <h2 class="h2 p2">Location:</h2>
+                <div class="map img-border">
+                    @*<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.5780531003!2d28.959649314774843!3d41.012607727108445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab98ddc3c6be3%3A0x4f51928bdbcd627a!2s%C4%B0stanbul+%C3%9Cniversitesi!5e0!3m2!1str!2str!4v1456245717251" frameborder="0" style="border:0"></iframe>*@
+                </div>
+
+            </div>
+            <div class="col-16">
+                <h2 class="h2 p2">Contact form:</h2>
+                <form id="form" action="/Send-Email" method="post">
+                    <fieldset>
+                        <label><input type="text"name="fulname" placeholder="Full name" ></label>
+                        <label><input name="email" type="text" placeholder="Email"></label>
+                        <label><input name="konu" type="text" placeholder="Subject"></label>
+                        <label><textarea name="desc" placeholder="Message"></textarea></label>
+                        <input type="text" name="id" value="" style="display:none;"/>
+                        <input type="text" name="durum" value="false" style="display:none;" />
+                        
+                        <div  class="btns"> <button type="submit" style="margin-top:5px;background-color:transparent;color:white;">Send</button></div>
+                        <h4>@Html.Raw(ViewBag.Error1)</h4>
+</fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</section> 

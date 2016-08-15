@@ -1,0 +1,201 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Mehmet TOKAK</title>
+    <link href="/Content/css/common.css" rel="stylesheet" media="all" />
+    <link href="/Content/css/style.css" rel="stylesheet" media="all" />
+    <link href="/Content/css/skin.css" rel="stylesheet" media="all" />
+    @*<link rel="icon" href="/Content/images/favicon.ico" type="image/x-icon">*@
+    @*<link rel="shortcut icon" href="/Content/images/favicon.ico" type="image/x-icon" />*@
+   
+   <script src="/Content/js/jquery-1.7.1.min.js"></script>
+    <script src="/Content/js/jquery-ui.min.js"></script>
+    <script src="/Content/js/jquery.ad-gallery.pack.js"></script>
+    <script src="/Content/js/jquery.anythingslider.min.js"></script>
+    <script src="/Content/js/jquery.colorbox-min.js"></script>
+    <script src="/Content/js/script.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/Content/js/html5.js"></script>
+    <![endif]-->
+    @*head bolumune ekleme yapabilmemiz icin false ıle olsun veya olmasın calısmaya devam diyorum*@
+    @RenderSection("head",required:false)
+</head>
+<body class="two_sidebars">
+    <!--[if lte IE 8]><div id="ie_message"><div class="wrapper"><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="/Content/images/banner_ie.png" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/></a></div></div><![endif]-->
+    <div id="wrapper">
+        <!-- header -->
+        <header>
+            <div id="above_header">
+                <div class="inner">
+                    <div class="region">
+                        <div id="block_header_time" class="block">
+                            <p>
+                                Bugün :
+                                <time datetime="@DateTime.Now.ToString("yyyy-MM-dd")" class="today">@DateTime.Now.ToString("dd MMMM yyyy")</time>
+                               Saat :
+                                <time datetime="@DateTime.Now.ToString("yyyy-MM-dd")" class="last_update">@DateTime.Now.ToString("HH:mm")</time>
+                            </p>
+                        </div>
+                        <div id="block_header_login" class="block">
+                            <p><a href="#">Login</a> | <a href="#">Register</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="header">
+                <div class="wrapper">
+                    <h1 id="logo"><a href="index-2.html" title="Home"><img src="/Content/images/gul1.png" width="30" height="30"/></a></h1>
+                    <div class="region">
+                        <div id="block-search-form" class="block">
+                                                    @*Aramacontroler/ara Metot*@
+                            <form method="post" action="/Arama/Ara">
+                                <div class="form-type-textfield">
+                                    <input type="text" class="form-text" name="txtArama" maxlength="128" size="15" placeholder="Arama" />
+                                </div>
+                                <div class="form-actions">
+                                    <input type="submit" class="form-submit" value="" />
+                                </div>
+                            </form>
+                        </div>
+                        <div id="block_header_rss" class="block">
+                            <p><a href="#" class="social_icons social_icons_right rss">RSS Feed</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @{
+                Html.RenderAction("KategoriEkle","Haber");
+               
+            }
+          
+            <aside id="block_login_register" class="block">
+                <div class="region">
+                    <div class="inner">
+                        <div class="wrapper">
+                            <div id="user_register" class="one_third">
+                                <h3 class="block_title">Register Now</h3>
+                                <div class="content">
+                                    <form action="#" method="post">
+                                        <span class="form-required">All fields are required</span>
+                                        <div class="form-item">
+                                            <label for="edit_register_email">E-Mail address:</label>
+                                            <div class="form-text_l">
+                                                <div class="form-text_r">
+                                                    <input type="email" class="form-text" id="edit_register_email" name="edit_register_email" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-item">
+                                            <label for="edit_password">Password:</label>
+                                            <div class="form-text_l">
+                                                <div class="form-text_r">
+                                                    <input type="password" class="form-text" id="edit_password" name="edit_password" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-item">
+                                            <label for="edit_password2">Retype password:</label>
+                                            <div class="form-text_l">
+                                                <div class="form-text_r">
+                                                    <input type="password" class="form-text" id="edit_password2" name="edit_password2" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="edit-actions">
+                                            <button type="submit"><span class="view_all active"><span><span>sign up</span></span></span></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="one_third">
+                                <h3 class="block_title">Need Help?</h3>
+                                <div class="content">
+                                    <p>
+                                        Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget.<br />
+                                        <br />
+                                        Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse sollicitudin velit sed leo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="user_login" class="one_third last">
+                                <h3 class="block_title">member LogIn</h3>
+                                <div class="content">
+                                    <form action="#" method="post">
+                                        <div class="form-item">
+                                            <label for="edit_login">Username:</label>
+                                            <div class="form-text_l">
+                                                <div class="form-text_r">
+                                                    <input type="text" class="form-text" id="edit_login" name="edit_login" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-item">
+                                            <label for="edit_login_password">Password:</label>
+                                            <div class="form-text_l">
+                                                <div class="form-text_r">
+                                                    <input type="password" class="form-text" id="edit_login_password" name="edit_login_password" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="edit_login_remember_wrapper" class="form-item">
+                                            <input type="checkbox" id="edit_login_remember" name="edit_login_remember" class="checkbox_replace" />
+                                            <label for="edit_login_remember">Remember me</label>
+                                            <a href="#">Forgot Password?</a>
+                                        </div>
+                                        <div id="edit-actions">
+                                            <button type="submit"><span class="view_all active"><span><span>log in</span></span></span></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapper close"><a href="#">Close</a></div>
+            </aside>
+        </header>
+        <!-- end header -->
+      
+      @RenderBody()
+
+        <div id="scroll_to_top_wrapper">
+            <div class="wrapper"><a href="#" id="scroll_to_top">Scroll To Top</a></div>
+        </div>
+        <!-- footer -->
+        <footer>
+            <div class="region">
+               
+                <div id="block_copyright" class="block" >
+                    <center><p>Copyright &copy; 2016 Mehmet TOKAK</p></center>
+                </div>
+            </div>
+        </footer>
+        <!-- end footer -->
+    </div>
+    <div id="tools">
+        <h3>Options</h3>
+        <div class="content">
+            <h4>Layout type:</h4>
+            <a href="#" id="liquid" class="layout"><span class="active">liquid</span></a><a href="#" id="fixed" class="layout"><span>fixed</span></a>
+            <h4 class="color">Layout color:</h4>
+            <ul id="tools_colors">
+                <li class="red"><a href="#" class="active">Kırmızı</a></li>
+                <li class="blue"><a href="#">Mavi</a></li>
+                <li class="orange"><a href="#">Turuncu</a></li>
+                <li class="green"><a href="#">Yesil</a></li>
+                <li class="grey"><a href="#">Gri</a></li>
+                <li class="dark_blue"><a href="#">Koru Mavi</a></li>
+                <li class="dark_grey"><a href="#">Koyu Gri</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+<!-- Mirrored from inthe7heaven.com/news/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 May 2016 22:03:47 GMT -->
+</html>
